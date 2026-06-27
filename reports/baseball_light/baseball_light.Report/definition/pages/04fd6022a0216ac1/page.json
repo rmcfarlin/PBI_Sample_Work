@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "04fd6022a0216ac1",
+  "displayName": "Player Profile",
+  "width": 1280,
+  "height": 720,
+  "displayOption": "FitToPage",
+  "type": "Drillthrough",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fe3cdbeec99a74e1bbf7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "baseball_hits"
+              }
+            },
+            "Property": "PLAYER"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "a7f56585c6b412356abf",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "8910ca1ad3a7c74a6bae",
+        "boundFilter": "fe3cdbeec99a74e1bbf7",
+        "asAggregation": false,
+        "qnaSingleSelectRequired": false,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "baseball_hits"
+              }
+            },
+            "Property": "PLAYER"
+          }
+        }
+      }
+    ]
+  }
+}

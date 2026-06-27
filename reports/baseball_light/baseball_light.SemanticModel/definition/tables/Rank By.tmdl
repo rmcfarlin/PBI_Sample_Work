@@ -1,0 +1,59 @@
+table 'Rank By'
+	lineageTag: ef2afd4f-09fe-4e1c-b387-14f559a8ca67
+
+	column 'Rank By'
+		lineageTag: 47ddbaad-a3df-4a7f-8287-ed28ba92be74
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Rank By Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Rank By Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank By Fields'
+		isHidden
+		lineageTag: 9819eeaf-c089-4e6c-9022-5526ea6cdd8f
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Rank By Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank By Order'
+		isHidden
+		formatString: 0
+		lineageTag: f6af1a07-addc-421a-9d1b-c0a0805e841b
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Rank By' = calculated
+		mode: import
+		source =
+				{
+				    ("Hits", NAMEOF([Total Hits]), 0),
+				    ("Home Runs", NAMEOF([Total Home Runs]), 1),
+				    ("RBI", NAMEOF([Total RBI]), 2),
+				    ("Runs", NAMEOF([Total Runs]), 3),
+				    ("Batting Average", NAMEOF([Batting Average]), 4),
+				    ("On-Base %", NAMEOF([On-Base Pct (approx)]), 5),
+				    ("Slugging %", NAMEOF([Slugging Pct]), 6),
+				    ("OPS", NAMEOF([OPS (approx)]), 7),
+				    ("Isolated Power", NAMEOF([Isolated Power (ISO)]), 8),
+				    ("Total Bases", NAMEOF([Total Bases]), 9),
+				    ("Walks", NAMEOF([Total Walks]), 10),
+				    ("Stolen Bases", NAMEOF([Total Stolen Bases]), 11),
+				    ("Runs Created", NAMEOF([Runs Created (basic)]), 12),
+				    ("Power-Speed", NAMEOF([Power-Speed Number]), 13)
+				}
+
+	annotation PBI_Id = 3f8530814a9a416b8ea793c2a2b55f15

@@ -1,0 +1,196 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "tb-archedef",
+  "position": {
+    "x": 24,
+    "y": 594,
+    "z": 0,
+    "width": 740,
+    "height": 102,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "HOW THE QUADRANTS WORK",
+                    "textStyle": {
+                      "fontFamily": "Oswald, 'Arial Narrow', sans-serif",
+                      "fontSize": "13pt",
+                      "color": "#0E3386",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Split at the dataset medians \u2014 power = ISO .148, contact = AVG .287.  ",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#343A48"
+                    }
+                  },
+                  {
+                    "value": "Sluggers",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#CC3433",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " (power, lower avg) \u00b7 ",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#343A48"
+                    }
+                  },
+                  {
+                    "value": "Five-Tool",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#0E3386",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " (power + avg) \u00b7 ",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#343A48"
+                    }
+                  },
+                  {
+                    "value": "Pure Hitters",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#0E3386",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " (avg, less power) \u00b7 ",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#343A48"
+                    }
+                  },
+                  {
+                    "value": "Table-Setters",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#3C7A3F",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " (contact/speed).",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#343A48"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Click a Cubs legend at right to find them on the map.",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#6C7484",
+                      "fontStyle": "italic"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ],
+            "verticalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'top'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

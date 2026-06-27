@@ -1,0 +1,164 @@
+{
+  "name": "power-iso-vs-contact-avg-sized-scatterChart-bfd1a7",
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "X": {
+          "projections": [
+            {
+              "queryRef": "_Measures.Isolated Power (ISO)",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Isolated Power (ISO)"
+                }
+              },
+              "nativeQueryRef": "Isolated Power (ISO)"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "queryRef": "_Measures.Batting Average",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Batting Average"
+                }
+              },
+              "nativeQueryRef": "Batting Average"
+            }
+          ]
+        },
+        "Category": {
+          "projections": [
+            {
+              "queryRef": "baseball_hits.PLAYER",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "PLAYER"
+                }
+              },
+              "nativeQueryRef": "PLAYER"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "queryRef": "baseball_hits.Archetype",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "Archetype"
+                }
+              },
+              "nativeQueryRef": "Archetype"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "queryRef": "_Measures.Total Games",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Games"
+                }
+              },
+              "nativeQueryRef": "Total Games"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Isolated Power (ISO)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'POWER (ISO) vs CONTACT (AVG) — SIZED BY GAMES'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 24,
+    "y": 108,
+    "z": 0,
+    "width": 740,
+    "height": 470,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+}

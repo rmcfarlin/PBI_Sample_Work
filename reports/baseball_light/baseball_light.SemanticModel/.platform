@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "baseball_light"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4f8a639f-4f2a-4c57-b45d-f5f178c41b00"
+  }
+}

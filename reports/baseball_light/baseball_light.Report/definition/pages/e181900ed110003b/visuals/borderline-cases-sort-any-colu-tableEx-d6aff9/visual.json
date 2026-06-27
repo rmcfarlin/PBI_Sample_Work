@@ -1,0 +1,162 @@
+{
+  "name": "borderline-cases-sort-any-colu-tableEx-d6aff9",
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "queryRef": "baseball_hits.PLAYER",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "PLAYER"
+                }
+              },
+              "nativeQueryRef": "PLAYER"
+            },
+            {
+              "queryRef": "baseball_hits.HOF Status",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "HOF Status"
+                }
+              },
+              "nativeQueryRef": "HOF Status"
+            },
+            {
+              "queryRef": "_Measures.Total Hits",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Hits"
+                }
+              },
+              "nativeQueryRef": "Total Hits"
+            },
+            {
+              "queryRef": "_Measures.Total Home Runs",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Home Runs"
+                }
+              },
+              "nativeQueryRef": "Total Home Runs"
+            },
+            {
+              "queryRef": "_Measures.Total RBI",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total RBI"
+                }
+              },
+              "nativeQueryRef": "Total RBI"
+            },
+            {
+              "queryRef": "_Measures.OPS (approx)",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "OPS (approx)"
+                }
+              },
+              "nativeQueryRef": "OPS (approx)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "OPS (approx)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'BORDERLINE CASES — SORT ANY COLUMN TO EXPLORE SNUBS & COMPILERS'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 24,
+    "y": 544,
+    "z": 0,
+    "width": 1232,
+    "height": 152,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+}

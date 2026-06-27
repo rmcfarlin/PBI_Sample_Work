@@ -1,0 +1,162 @@
+{
+  "name": "leaderboard-tableEx-3b648c",
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "queryRef": "baseball_hits.PLAYER",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "PLAYER"
+                }
+              },
+              "nativeQueryRef": "PLAYER"
+            },
+            {
+              "queryRef": "baseball_hits.YRS",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "YRS"
+                }
+              },
+              "nativeQueryRef": "YRS"
+            },
+            {
+              "queryRef": "_Measures.Total Hits",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Hits"
+                }
+              },
+              "nativeQueryRef": "Total Hits"
+            },
+            {
+              "queryRef": "_Measures.Total Home Runs",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Home Runs"
+                }
+              },
+              "nativeQueryRef": "Total Home Runs"
+            },
+            {
+              "queryRef": "_Measures.Batting Average",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Batting Average"
+                }
+              },
+              "nativeQueryRef": "Batting Average"
+            },
+            {
+              "queryRef": "baseball_hits.HOF Status",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "HOF Status"
+                }
+              },
+              "nativeQueryRef": "HOF Status"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Hits"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {},
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'LEADERBOARD'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "position": {
+    "x": 860,
+    "y": 296,
+    "z": 0,
+    "width": 396,
+    "height": 400,
+    "tabOrder": 0
+  },
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+}

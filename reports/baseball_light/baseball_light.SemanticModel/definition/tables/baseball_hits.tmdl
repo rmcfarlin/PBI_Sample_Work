@@ -1,0 +1,305 @@
+table baseball_hits
+	lineageTag: 1547fe16-826d-425f-8fc9-0a230590ef65
+
+	column PLAYER
+		dataType: string
+		lineageTag: 9b19ea7c-9761-4666-8b12-5ed38ea34017
+		summarizeBy: none
+		sourceColumn: PLAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column YRS
+		dataType: int64
+		formatString: 0
+		lineageTag: 67b11c42-3c86-4f59-a510-cbc7fbe2b023
+		summarizeBy: sum
+		sourceColumn: YRS
+
+		annotation SummarizationSetBy = Automatic
+
+	column G
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b640efa-354f-4f76-8417-7a9c2b1196cd
+		summarizeBy: sum
+		sourceColumn: G
+
+		annotation SummarizationSetBy = Automatic
+
+	column AB
+		dataType: int64
+		formatString: 0
+		lineageTag: 10c8ca2c-4f91-49d2-9b95-74cced5bff34
+		summarizeBy: sum
+		sourceColumn: AB
+
+		annotation SummarizationSetBy = Automatic
+
+	column R
+		dataType: int64
+		formatString: 0
+		lineageTag: d0a51093-e863-4400-81fd-7417ba7f450d
+		summarizeBy: sum
+		sourceColumn: R
+
+		annotation SummarizationSetBy = Automatic
+
+	column H
+		dataType: int64
+		formatString: 0
+		lineageTag: bbbedc07-36ba-420c-abb4-bd8bbed2c45f
+		summarizeBy: sum
+		sourceColumn: H
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2B
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cec0b13-8c82-4d3a-b490-f55ecf6086c9
+		summarizeBy: sum
+		sourceColumn: 2B
+
+		annotation SummarizationSetBy = Automatic
+
+	column 3B
+		dataType: int64
+		formatString: 0
+		lineageTag: a9e7dc42-8c82-4e10-9e8a-7bc53bc72bc6
+		summarizeBy: sum
+		sourceColumn: 3B
+
+		annotation SummarizationSetBy = Automatic
+
+	column HR
+		dataType: int64
+		formatString: 0
+		lineageTag: 7171fd87-f819-45d6-a3b9-e99b99d45a97
+		summarizeBy: sum
+		sourceColumn: HR
+
+		annotation SummarizationSetBy = Automatic
+
+	column RBI
+		dataType: int64
+		formatString: 0
+		lineageTag: 893ea0e1-a9f2-43d7-8f41-f00359ed8aeb
+		summarizeBy: sum
+		sourceColumn: RBI
+
+		annotation SummarizationSetBy = Automatic
+
+	column BB
+		dataType: int64
+		formatString: 0
+		lineageTag: 405e8556-1875-4579-a9fc-6878c7112275
+		summarizeBy: sum
+		sourceColumn: BB
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO
+		dataType: int64
+		formatString: 0
+		lineageTag: d75397f9-b648-4054-9dee-78aad9c52838
+		summarizeBy: sum
+		sourceColumn: SO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SB
+		dataType: int64
+		formatString: 0
+		lineageTag: e6e6279a-f954-4099-bfea-c562eb52d17c
+		summarizeBy: sum
+		sourceColumn: SB
+
+		annotation SummarizationSetBy = Automatic
+
+	column CS
+		dataType: int64
+		formatString: 0
+		lineageTag: f55e8d38-0b0f-43c0-86ba-9d8da564b35f
+		summarizeBy: sum
+		sourceColumn: CS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BA
+		dataType: double
+		lineageTag: 945dd0c2-a21b-4e8e-a35d-bd1359cb6112
+		summarizeBy: sum
+		sourceColumn: BA
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HOF
+		dataType: int64
+		formatString: 0
+		lineageTag: 93cd9699-8447-4ff0-a25f-9073024f07a1
+		summarizeBy: sum
+		sourceColumn: HOF
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Hall of Fame membership as a label (HOF flag 1 or 2 = inducted).
+	column 'HOF Status' = IF(baseball_hits[HOF] >= 1, "Hall of Fame", "Not Inducted")
+		dataType: string
+		lineageTag: ad49b208-a73c-4e25-b7ed-e7c79d78d98c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Per-player approx OBP = (H+BB)/(AB+BB).
+	column 'Player OBP' = DIVIDE(baseball_hits[H] + baseball_hits[BB], baseball_hits[AB] + baseball_hits[BB])
+		dataType: double
+		formatString: 0.000
+		lineageTag: 251ab336-c064-451f-9fe5-1bbb3c7603f2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Per-player total bases.
+	column 'Player Total Bases' = (baseball_hits[H] - baseball_hits[2B] - baseball_hits[3B] - baseball_hits[HR]) + 2*baseball_hits[2B] + 3*baseball_hits[3B] + 4*baseball_hits[HR]
+		dataType: int64
+		formatString: #,0
+		lineageTag: 11d24d85-19f8-482e-93e0-44b4e64a1df5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Per-player slugging = TB/AB.
+	column 'Player SLG' = DIVIDE(baseball_hits[Player Total Bases], baseball_hits[AB])
+		dataType: double
+		formatString: 0.000
+		lineageTag: 1d0f105f-657e-40b9-a777-95a17904c658
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Per-player OPS (approx OBP + SLG).
+	column 'Player OPS' = baseball_hits[Player OBP] + baseball_hits[Player SLG]
+		dataType: double
+		formatString: 0.000
+		lineageTag: 76ae08b6-f424-4256-ad41-6bb468dd764a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Per-player isolated power = SLG - BA.
+	column 'Player ISO' = baseball_hits[Player SLG] - baseball_hits[BA]
+		dataType: double
+		formatString: 0.000
+		lineageTag: 071bae3d-2627-4c28-9952-4e7eeff8134c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Career-hit total grouped into bands.
+	column 'Hits Band' =
+			SWITCH(
+			    TRUE(),
+			    baseball_hits[H] >= 3000, "3,000+",
+			    baseball_hits[H] >= 2500, "2,500-2,999",
+			    baseball_hits[H] >= 2000, "2,000-2,499",
+			    "Under 2,000"
+			)
+		dataType: string
+		lineageTag: 890649af-f19d-44c3-b5ad-cd5797833bdb
+		summarizeBy: none
+		sortByColumn: 'Hits Band Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hits Band Order' =
+			SWITCH(
+			    TRUE(),
+			    baseball_hits[H] >= 3000, 1,
+			    baseball_hits[H] >= 2500, 2,
+			    baseball_hits[H] >= 2000, 3,
+			    4
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: 000374da-bf9d-431a-9259-4b3dd2bf1f01
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Career OPS grouped into bands.
+	column 'OPS Band' =
+			SWITCH(
+			    TRUE(),
+			    baseball_hits[Player OPS] >= 0.9, ".900+",
+			    baseball_hits[Player OPS] >= 0.8, ".800-.899",
+			    baseball_hits[Player OPS] >= 0.7, ".700-.799",
+			    "Under .700"
+			)
+		dataType: string
+		lineageTag: 44428c4c-4c4c-4480-8fab-aaa9f106f1b7
+		summarizeBy: none
+		sortByColumn: 'OPS Band Order'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'OPS Band Order' =
+			SWITCH(
+			    TRUE(),
+			    baseball_hits[Player OPS] >= 0.9, 1,
+			    baseball_hits[Player OPS] >= 0.8, 2,
+			    baseball_hits[Player OPS] >= 0.7, 3,
+			    4
+			)
+		dataType: int64
+		formatString: 0
+		lineageTag: f90d9788-057e-496c-a7e0-e9d0b7f271af
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Power (ISO) x Contact (BA) archetype, split at dataset medians.
+	column 'Archetype' =
+			VAR Power = baseball_hits[Player ISO] >= 0.148
+			VAR Contact = baseball_hits[BA] >= 0.287
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Power && Contact, "Five-Tool",
+			    Power && NOT Contact, "Slugger",
+			    NOT Power && Contact, "Pure Hitter",
+			    "Table-Setter"
+			)
+		dataType: string
+		lineageTag: b796ae8e-348a-4e58-b25d-9d0aa2d989e5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Flags Chicago Cubs greats present in the dataset.
+	column 'Is Cubs Legend' =
+			IF(
+			    baseball_hits[PLAYER] IN { "Cap Anson", "Ernie Banks", "Billy Williams", "Ron Santo", "Mark Grace", "Ryne Sandberg", "Starlin Castro", "Aramis Ramirez", "Gabby Hartnett", "Phil Cavarretta", "Stan Hack", "Charlie Grimm", "Kiki Cuyler", "Frank Schulte", "Joe Tinker", "Jimmy Ryan", "Jimmy Sheckard", "Fred Pfeffer", "Billy Herman", "Don Kessinger" },
+			    "Cubs Legend",
+			    "Other"
+			)
+		dataType: string
+		lineageTag: 31f9f293-40bc-48ce-8a84-27ae9eb7472a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition baseball_hits = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\PBI_Public\data\baseball_hits.csv"), [Delimiter = ",", Columns = 16, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"PLAYER", type text}, {"YRS", Int64.Type}, {"G", Int64.Type}, {"AB", Int64.Type}, {"R", Int64.Type}, {"H", Int64.Type}, {"2B", Int64.Type}, {"3B", Int64.Type}, {"HR", Int64.Type}, {"RBI", Int64.Type}, {"BB", Int64.Type}, {"SO", Int64.Type}, {"SB", Int64.Type}, {"CS", Int64.Type}, {"BA", type number}, {"HOF", Int64.Type}})
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+
