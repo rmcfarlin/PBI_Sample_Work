@@ -1,0 +1,17 @@
+# Power BI Project local/cache artifacts
+.pbi/
+*.pbix.tmp
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# OS / editor cruft
+Thumbs.db
+.DS_Store
+desktop.ini
+*~
+
+# Secrets / local config — never publish
+*.env
+*.secret
+**/connection-strings.json
+**/credentials.json
