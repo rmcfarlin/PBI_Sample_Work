@@ -4,6 +4,9 @@
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
 
+# Local Claude Code config — personal, not for the public repo
+.claude/
+
 # OS / editor cruft
 Thumbs.db
 .DS_Store
