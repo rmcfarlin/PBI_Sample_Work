@@ -1,9 +1,9 @@
 table _Measures
-	lineageTag: 63c78af8-4c4a-498f-b16d-c01181f997c9
+	lineageTag: 4f05b12c-4e35-41c3-8477-f4f8a110e8e7
 
 	column Value
 		isHidden
-		lineageTag: f69722e7-213f-45c2-a1bc-901d3b13f799
+		lineageTag: 80f05e1a-e475-4b06-8e2b-87c45d459545
 		isNameInferred
 		sourceColumn: [Value]
 
@@ -12,119 +12,119 @@ table _Measures
 			SUM(baseball_hits[G])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 04d0de17-440a-4659-8891-45dafda6bfb6
+		lineageTag: eb8b82a1-5ca9-46f9-bb1a-9e58e70e9014
 
 	/// At-bats — the denominator for most rate stats.
 	measure 'Total At-Bats' =
 			SUM(baseball_hits[AB])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: c39d69b6-c07e-4e8c-a4fa-99cd4a61803b
+		lineageTag: a727ce28-14c2-45b5-8d93-9f28cb3fe4b1
 
 	/// Runs scored.
 	measure 'Total Runs' =
 			SUM(baseball_hits[R])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: dc575f17-2c59-49ac-a8d1-935e65b8bf5b
+		lineageTag: 68e0fedd-51a1-475c-8655-3109af96699b
 
 	/// Career hits.
 	measure 'Total Hits' =
 			SUM(baseball_hits[H])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 230de297-5d55-4f71-ae52-6814e0679644
+		lineageTag: 6953aba5-ed5b-49b9-a8de-7399bef735a5
 
 	/// Doubles.
 	measure 'Total Doubles' =
 			SUM(baseball_hits[2B])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 105a9194-37da-40da-a460-2541d852017d
+		lineageTag: 8eaf0f78-02ce-4112-ad08-cc0361ecdca2
 
 	/// Triples.
 	measure 'Total Triples' =
 			SUM(baseball_hits[3B])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: ed9fa368-c64f-41de-9a10-e636a6ed456f
+		lineageTag: 59578912-53a0-4df3-868a-bfd09de7f3d0
 
 	/// Home runs.
 	measure 'Total Home Runs' =
 			SUM(baseball_hits[HR])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 8061da4f-b891-4343-b7f1-d458f34c1894
+		lineageTag: b02ebe2e-bd73-4844-9b55-9180b753fba6
 
 	/// Runs batted in.
 	measure 'Total RBI' =
 			SUM(baseball_hits[RBI])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: dd86c2c6-838d-4863-9ca9-21423dacda04
+		lineageTag: b3f94f33-e89b-467e-b6fe-f795c6a2bad0
 
 	/// Bases on balls (walks).
 	measure 'Total Walks' =
 			SUM(baseball_hits[BB])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 2bf810ca-62a2-435b-8ab9-c406a44dc8f7
+		lineageTag: f1ea4d8f-d587-4ab0-a0a0-149fed680d1b
 
 	/// Strikeouts.
 	measure 'Total Strikeouts' =
 			SUM(baseball_hits[SO])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: be349d3b-a5b6-4619-9462-4c57b239d511
+		lineageTag: f84f9cc3-7b68-43de-91d1-cb43fc06da70
 
 	/// Stolen bases.
 	measure 'Total Stolen Bases' =
 			SUM(baseball_hits[SB])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 36e7825d-1767-4ff0-8b38-d47f664e4cf1
+		lineageTag: 147b6ef8-caa7-4c2e-a2fa-0e20f782be57
 
 	/// Times caught stealing.
 	measure 'Total Caught Stealing' =
 			SUM(baseball_hits[CS])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: e525799c-971b-48b2-9145-cd9323fa1927
+		lineageTag: f7ba6272-85a1-4708-9c8c-4a529d956b7b
 
 	/// Seasons played (player-seasons across a group).
 	measure 'Total Seasons' =
 			SUM(baseball_hits[YRS])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: db515b6d-bf9c-4c97-8153-88310895f99d
+		lineageTag: 3258da13-f4e9-41dc-be3b-e0e537f95636
 
 	/// Distinct players in context.
 	measure 'Total Players' =
 			DISTINCTCOUNT(baseball_hits[PLAYER])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 5a52535a-0c3a-4770-9284-0616e7a9f650
+		lineageTag: 6633b8c9-b41f-4f4f-8aca-17a1bdf69325
 
 	/// Approx plate appearances = AB + BB (no HBP/SF/SH in source).
 	measure 'Total Plate Appearances' =
 			SUM(baseball_hits[AB]) + SUM(baseball_hits[BB])
 		formatString: #,0
 		displayFolder: 01 Counting
-		lineageTag: 63400abe-b99c-4ab4-9f6c-49156b545915
+		lineageTag: 921fa0b1-255c-496c-89d7-53a74c0a6e8f
 
 	/// Hits / at-bats, aggregated SUM/SUM so it is correct at any grain.
 	measure 'Batting Average' =
 			DIVIDE(SUM(baseball_hits[H]), SUM(baseball_hits[AB]))
 		formatString: 0.000
 		displayFolder: 02 Rate Stats
-		lineageTag: 7626ee59-cdaa-46f1-9823-19413dd12c8f
+		lineageTag: 92330dd1-5ada-4040-963a-8df59658b409
 
 	/// Approx OBP = (H+BB)/(AB+BB). No HBP/SF in source, so slightly below official OBP.
 	measure 'On-Base Pct (approx)' =
 			DIVIDE(SUM(baseball_hits[H]) + SUM(baseball_hits[BB]), SUM(baseball_hits[AB]) + SUM(baseball_hits[BB]))
 		formatString: 0.000
 		displayFolder: 02 Rate Stats
-		lineageTag: 67c6eb6d-d18e-4546-a528-f7f002a6e135
+		lineageTag: 4c583adb-49d8-4d45-8202-e90aefcdf16e
 
 	/// Total bases / at-bats; singles derived as H-2B-3B-HR.
 	measure 'Slugging Pct' =
@@ -135,21 +135,21 @@ table _Measures
 			)
 		formatString: 0.000
 		displayFolder: 02 Rate Stats
-		lineageTag: 80ad9318-ca74-4c70-9d2e-312bda825c13
+		lineageTag: e7758329-40ed-47de-a645-5fdc0e6be697
 
 	/// On-base plus slugging. Inherits the OBP approximation.
 	measure 'OPS (approx)' =
 			[On-Base Pct (approx)] + [Slugging Pct]
 		formatString: 0.000
 		displayFolder: 02 Rate Stats
-		lineageTag: 397002c8-8bc5-4135-9ad6-cf1566e74546
+		lineageTag: 9988fede-26ef-42e2-bacf-6cfeacc1889f
 
 	/// Extra-base productivity = SLG - BA on aggregates.
 	measure 'Isolated Power (ISO)' =
 			[Slugging Pct] - [Batting Average]
 		formatString: 0.000
 		displayFolder: 02 Rate Stats
-		lineageTag: 5f5622c9-137a-4d21-92f7-93d85d2c4163
+		lineageTag: e880ae60-c8e1-4ea5-a0f2-21b6ba8bd838
 
 	/// 1B + 2*2B + 3*3B + 4*HR.
 	measure 'Total Bases' =
@@ -157,84 +157,84 @@ table _Measures
 			    + 2 * SUM(baseball_hits[2B]) + 3 * SUM(baseball_hits[3B]) + 4 * SUM(baseball_hits[HR])
 		formatString: #,0
 		displayFolder: 03 Power
-		lineageTag: cf4d2204-e88b-4051-b785-c97166bda086
+		lineageTag: 571e9678-0b68-4a8e-8085-96e6faa3545b
 
 	/// Hits minus extra-base hits.
 	measure 'Singles' =
 			SUM(baseball_hits[H]) - SUM(baseball_hits[2B]) - SUM(baseball_hits[3B]) - SUM(baseball_hits[HR])
 		formatString: #,0
 		displayFolder: 03 Power
-		lineageTag: 9a66edb5-a081-441b-a230-3eeaf842c1b0
+		lineageTag: 8d83f18c-3f4e-4193-bff8-68fc5d57f489
 
 	/// Doubles + triples + home runs.
 	measure 'Extra-Base Hits' =
 			SUM(baseball_hits[2B]) + SUM(baseball_hits[3B]) + SUM(baseball_hits[HR])
 		formatString: #,0
 		displayFolder: 03 Power
-		lineageTag: 275e399a-8898-4dbb-b785-922708d4fba2
+		lineageTag: 28d57dd3-5906-4cf3-a02e-a061f0d43cb0
 
 	/// At-bats per home run; lower = more power.
 	measure 'AB per HR' =
 			DIVIDE(SUM(baseball_hits[AB]), SUM(baseball_hits[HR]))
 		formatString: 0.0
 		displayFolder: 03 Power
-		lineageTag: 9468389b-59af-4d28-b7b8-a034593b7e4e
+		lineageTag: 300c3755-7ab9-4a38-918d-ecf30adf506d
 
 	/// Home-run rate scaled to a full season.
 	measure 'HR per 162 Games' =
 			DIVIDE(SUM(baseball_hits[HR]), SUM(baseball_hits[G])) * 162
 		formatString: 0.0
 		displayFolder: 03 Power
-		lineageTag: eb0efd9b-e045-4936-8656-4037ecc39b0b
+		lineageTag: 600ea4c1-0860-492c-a403-a4008f2cc71c
 
 	/// Share of hits going for extra bases.
 	measure 'XBH Pct of Hits' =
 			DIVIDE([Extra-Base Hits], SUM(baseball_hits[H]))
 		formatString: 0.0%
 		displayFolder: 03 Power
-		lineageTag: c8909de5-add7-4c48-a3be-a0da7761d31f
+		lineageTag: cb2b396c-f4c8-46b9-ab9c-d1679c111a5e
 
 	/// Share of hits that are home runs.
 	measure 'HR Pct of Hits' =
 			DIVIDE(SUM(baseball_hits[HR]), SUM(baseball_hits[H]))
 		formatString: 0.0%
 		displayFolder: 03 Power
-		lineageTag: 791d3967-093d-4b47-a628-8db3b3e9fc00
+		lineageTag: 83223d63-0295-4da9-8784-582b52fcf01f
 
 	/// Walk-to-strikeout ratio; higher = better plate discipline.
 	measure 'BB per K' =
 			DIVIDE(SUM(baseball_hits[BB]), SUM(baseball_hits[SO]))
 		formatString: 0.00
 		displayFolder: 04 Discipline
-		lineageTag: 6ef766e8-1184-4402-95a4-84b60cf9be0e
+		lineageTag: 6595af70-3fff-4005-88a4-95237a84456c
 
 	/// Strikeouts per approx plate appearance.
 	measure 'Strikeout Pct (approx)' =
 			DIVIDE(SUM(baseball_hits[SO]), SUM(baseball_hits[AB]) + SUM(baseball_hits[BB]))
 		formatString: 0.0%
 		displayFolder: 04 Discipline
-		lineageTag: 73834cbf-cc9a-47b2-b413-7db86a61b1da
+		lineageTag: 2460323b-86fb-49b4-b9e6-f154cbe15c65
 
 	/// Walks per approx plate appearance.
 	measure 'Walk Pct (approx)' =
 			DIVIDE(SUM(baseball_hits[BB]), SUM(baseball_hits[AB]) + SUM(baseball_hits[BB]))
 		formatString: 0.0%
 		displayFolder: 04 Discipline
-		lineageTag: 097440f6-fc9d-4ba4-bf77-db4cf1753196
+		lineageTag: b4b73a1e-b6b0-4f24-b8af-f50157888384
 
 	/// Stolen-base success = SB / (SB + CS).
 	measure 'SB Success Pct' =
 			DIVIDE(SUM(baseball_hits[SB]), SUM(baseball_hits[SB]) + SUM(baseball_hits[CS]))
 		formatString: 0.0%
 		displayFolder: 05 Speed
-		lineageTag: 399d34d8-827f-43c9-a3c6-e86c16962238
+		lineageTag: 6699c42a-33dd-4951-b8c8-4469d3cd93a2
 
 	/// Total SB attempts.
 	measure 'Stolen Base Attempts' =
 			SUM(baseball_hits[SB]) + SUM(baseball_hits[CS])
 		formatString: #,0
 		displayFolder: 05 Speed
-		lineageTag: e0f95a9a-68ff-4279-9649-18359741577d
+		lineageTag: 2f8a5d61-8120-4cd1-9b78-66b38a96290b
 
 	/// Bill James Power-Speed Number = (2*HR*SB)/(HR+SB).
 	measure 'Power-Speed Number' =
@@ -243,14 +243,14 @@ table _Measures
 			RETURN DIVIDE(2 * HRs * SBs, HRs + SBs)
 		formatString: 0.0
 		displayFolder: 05 Speed
-		lineageTag: f75c324a-46b5-436d-8873-1640b8b95beb
+		lineageTag: f9ca3f60-56db-405a-9f59-aae5b67d128d
 
 	/// Stolen bases scaled to a full season.
 	measure 'SB per 162 Games' =
 			DIVIDE(SUM(baseball_hits[SB]), SUM(baseball_hits[G])) * 162
 		formatString: 0.0
 		displayFolder: 05 Speed
-		lineageTag: 1027cbb3-b2c2-4cdc-b761-40e2c7b264f1
+		lineageTag: 2a8416fe-3725-4588-b865-4826f878a716
 
 	/// Bill James basic Runs Created = (H+BB)*TB/(AB+BB).
 	measure 'Runs Created (basic)' =
@@ -260,132 +260,132 @@ table _Measures
 			)
 		formatString: #,0
 		displayFolder: 06 Value
-		lineageTag: 06913aac-35c9-46be-80af-8b0fb10aeb21
+		lineageTag: 1d652b68-0b52-424d-9ec8-cad52aa8d790
 
 	/// Career hits per season played.
 	measure 'Hits per Season' =
 			DIVIDE(SUM(baseball_hits[H]), SUM(baseball_hits[YRS]))
 		formatString: 0.0
 		displayFolder: 06 Value
-		lineageTag: 08840597-5bb1-4714-8f84-2b8b178504c5
+		lineageTag: 7a8b49ed-e0b8-401e-bc49-16c692064983
 
 	/// Durability proxy: games per season.
 	measure 'Games per Season' =
 			DIVIDE(SUM(baseball_hits[G]), SUM(baseball_hits[YRS]))
 		formatString: 0.0
 		displayFolder: 06 Value
-		lineageTag: d15b61e8-ef84-4964-bf3e-21e01bcadc7e
+		lineageTag: fdb34797-963d-4a14-9f24-b7f7032e55ae
 
 	/// Hall of Fame players (HOF flag 1 or 2).
 	measure 'HOF Count' =
 			CALCULATE(DISTINCTCOUNT(baseball_hits[PLAYER]), baseball_hits[HOF] >= 1)
 		formatString: #,0
 		displayFolder: 07 Hall of Fame
-		lineageTag: 4e63b0bc-1709-465d-99bb-a75218d7ff41
+		lineageTag: 2d26f68e-d793-43ff-b0db-d3bd09c3800c
 
 	/// Non-inducted players; strict complement of HOF Count.
 	measure 'Non-HOF Count' =
 			CALCULATE(DISTINCTCOUNT(baseball_hits[PLAYER]), baseball_hits[HOF] = 0)
 		formatString: #,0
 		displayFolder: 07 Hall of Fame
-		lineageTag: 5a8727f8-de7f-4dcf-9308-84da1ad39d70
+		lineageTag: 873fc455-2ac0-40b5-a503-cb8faf54c9f3
 
 	/// Share of players in context who are in the Hall of Fame.
 	measure 'HOF Rate' =
 			DIVIDE([HOF Count], [Total Players])
 		formatString: 0.0%
 		displayFolder: 07 Hall of Fame
-		lineageTag: d456962a-c55e-4b27-8208-51b2a6942b23
+		lineageTag: de5a82b9-0764-47e4-9263-f93bd9074228
 
 	/// Average career HR per Hall of Famer.
 	measure 'HOF Avg HR' =
 			CALCULATE(DIVIDE(SUM(baseball_hits[HR]), DISTINCTCOUNT(baseball_hits[PLAYER])), baseball_hits[HOF] >= 1)
 		formatString: 0.0
 		displayFolder: 07 Hall of Fame
-		lineageTag: 05e5b9ec-328d-4085-8521-8b87447f639e
+		lineageTag: b9aed044-898f-4c00-969e-74374bf10d97
 
 	/// Average career HR per non-inducted player.
 	measure 'Non-HOF Avg HR' =
 			CALCULATE(DIVIDE(SUM(baseball_hits[HR]), DISTINCTCOUNT(baseball_hits[PLAYER])), baseball_hits[HOF] = 0)
 		formatString: 0.0
 		displayFolder: 07 Hall of Fame
-		lineageTag: dd4090ec-e5bc-4ad6-aadf-eedbac0ea1de
+		lineageTag: 0ad87596-71ba-4a72-a6f3-bb8b1b1c323a
 
 	/// Aggregate batting average of Hall of Famers.
 	measure 'HOF BA' =
 			CALCULATE([Batting Average], baseball_hits[HOF] >= 1)
 		formatString: 0.000
 		displayFolder: 07 Hall of Fame
-		lineageTag: 8f735393-b126-41ad-a2a0-67269ca53705
+		lineageTag: ccae5729-5df3-4e01-95ca-4a2571236cdb
 
 	/// Aggregate batting average of non-inducted players.
 	measure 'Non-HOF BA' =
 			CALCULATE([Batting Average], baseball_hits[HOF] = 0)
 		formatString: 0.000
 		displayFolder: 07 Hall of Fame
-		lineageTag: d5bffbd4-0fa1-436e-98ef-51309f0cccd9
+		lineageTag: 6e742478-5fe2-413b-af31-79d4f9346081
 
 	/// Approx OPS of Hall of Famers.
 	measure 'HOF OPS (approx)' =
 			CALCULATE([OPS (approx)], baseball_hits[HOF] >= 1)
 		formatString: 0.000
 		displayFolder: 07 Hall of Fame
-		lineageTag: 4901d27d-0c60-4d4d-90e4-6fc50fe7685a
+		lineageTag: 4755f660-ee51-47c2-927c-da32b445051a
 
 	/// Approx OPS of non-inducted players.
 	measure 'Non-HOF OPS (approx)' =
 			CALCULATE([OPS (approx)], baseball_hits[HOF] = 0)
 		formatString: 0.000
 		displayFolder: 07 Hall of Fame
-		lineageTag: ab2b5403-1c6c-47b9-a15c-061d4ee1048e
+		lineageTag: c317ed9a-ccf6-4ee6-9f33-8fd633af604f
 
 	/// How many times the field's average HR a Hall of Famer hits.
 	measure 'HOF vs Field HR Multiple' =
 			DIVIDE([HOF Avg HR], [Non-HOF Avg HR])
 		formatString: 0.0"x"
 		displayFolder: 07 Hall of Fame
-		lineageTag: 6f41bac5-ba02-421c-ab3d-625a94af1017
+		lineageTag: 5c174f98-b40a-4fa7-8443-691b6b8d0a15
 
 	/// Average seasons per player.
 	measure 'Avg Career Length (YRS)' =
 			DIVIDE(SUM(baseball_hits[YRS]), [Total Players])
 		formatString: 0.0
 		displayFolder: 08 Profile & Clubs
-		lineageTag: 83388e65-1f37-4321-bcf8-4e39bbd65290
+		lineageTag: c2865b52-29d8-4d7e-98af-f080b456bf6f
 
 	/// Average career hits per player.
 	measure 'Avg Career Hits' =
 			DIVIDE(SUM(baseball_hits[H]), [Total Players])
 		formatString: #,0
 		displayFolder: 08 Profile & Clubs
-		lineageTag: 9f5fc5b2-8deb-4552-91b7-98844da53655
+		lineageTag: aeb3ed19-8b45-46a4-be46-dd23b8481cd3
 
 	/// Average career HR per player.
 	measure 'Avg Career HR' =
 			DIVIDE(SUM(baseball_hits[HR]), [Total Players])
 		formatString: 0.0
 		displayFolder: 08 Profile & Clubs
-		lineageTag: a17a42ef-2a41-477f-aa2c-d01f8923f031
+		lineageTag: e8af4736-9745-4b98-acf9-573d0583ab90
 
 	/// Players with 3,000+ career hits.
 	measure '3000 Hit Club Count' =
 			CALCULATE([Total Players], FILTER(VALUES(baseball_hits[PLAYER]), [Total Hits] >= 3000))
 		formatString: #,0
 		displayFolder: 08 Profile & Clubs
-		lineageTag: c15ba10a-1b85-4295-a2a3-d822e55070e6
+		lineageTag: 59bcb5ed-62a9-4a96-b6b6-db053931b9d0
 
 	/// Players with 500+ career home runs.
 	measure '500 HR Club Count' =
 			CALCULATE([Total Players], FILTER(VALUES(baseball_hits[PLAYER]), [Total Home Runs] >= 500))
 		formatString: #,0
 		displayFolder: 08 Profile & Clubs
-		lineageTag: 873ae103-e405-44b1-ad6d-11cc1a5f1753
+		lineageTag: 7707052f-c3c6-4b46-a301-fa2470167926
 
-	/// Returns the measure chosen in the 'Rank By' field parameter (via its Order column). Format #,0.### shows whole counts and 3-decimal rates alike.
+	/// Returns the measure chosen in the 'Rank By' field parameter (via its Order column). The leading 1.* forces a uniform Double type so the value can sit on a chart axis (counting stats are Int, rates are Double). Format #,0.### shows whole counts and 3-decimal rates alike.
 	measure 'Selected Metric Value' =
 			VAR sel = SELECTEDVALUE('Rank By'[Rank By Order], 0)
 			RETURN
-			SWITCH(
+			1. * SWITCH(
 			    sel,
 			    0, [Total Hits],
 			    1, [Total Home Runs],
@@ -405,7 +405,7 @@ table _Measures
 			)
 		formatString: #,0.###
 		displayFolder: 09 Dynamic
-		lineageTag: 4fe52e6a-6910-410b-bc21-0674fb735801
+		lineageTag: f00bb4d9-a917-4568-a8de-9c8023243897
 
 	/// Dense descending rank of the current player on the selected metric.
 	measure 'Player Rank by Selected Metric' =
@@ -415,7 +415,7 @@ table _Measures
 			)
 		formatString: #,0
 		displayFolder: 09 Dynamic
-		lineageTag: ec08daed-082b-4583-8d74-b4ac195a32d4
+		lineageTag: ddddac51-8d92-40b6-a9c6-5e773689bf63
 
 	/// Selected-metric rank expressed as a 0-100 percentile (100 = best).
 	measure 'Percentile Rank by Selected Metric' =
@@ -424,7 +424,7 @@ table _Measures
 			RETURN IF(NOT ISBLANK(Rnk), DIVIDE(N - Rnk, N - 1))
 		formatString: 0.0%
 		displayFolder: 09 Dynamic
-		lineageTag: 6ccb778c-7773-4071-b388-e3cdfebd471f
+		lineageTag: 2035b7f1-0247-4a1b-b827-d18f7dc8ccda
 
 	/// Dense rank of each player by career home runs.
 	measure 'Player Rank by HR' =
@@ -434,7 +434,7 @@ table _Measures
 			)
 		formatString: #,0
 		displayFolder: 09 Dynamic
-		lineageTag: 6ac170a8-ec3f-4195-ab0e-abd1753a6ccb
+		lineageTag: 18de4fb6-6964-41a7-af09-9f99600d9962
 
 	/// Dense rank of each player by approximate OPS.
 	measure 'Player Rank by OPS' =
@@ -444,19 +444,19 @@ table _Measures
 			)
 		formatString: #,0
 		displayFolder: 09 Dynamic
-		lineageTag: db5300a2-5007-4ebc-8975-036a9ad8da7a
+		lineageTag: 551fb4fb-b00d-44c1-8989-e30da36e58dc
 
 	/// Dynamic title that names the metric selected in the 'Rank By' field parameter.
 	measure 'Leaderboard Title' =
 			"TOP HITTERS BY " & UPPER(SELECTEDVALUE('Rank By'[Rank By], "HITS"))
 		displayFolder: 09 Dynamic
-		lineageTag: 3403c29a-edb7-4b0b-a0b4-30c53a55c459
+		lineageTag: 3c63ced6-36ba-44df-9bfe-8c2139303b65
 
 	/// The player currently in context (for dynamic titles on the profile page).
 	measure 'Selected Player' =
 			SELECTEDVALUE(baseball_hits[PLAYER], "All Players")
 		displayFolder: 09 Dynamic
-		lineageTag: 4f471249-5ff1-43c1-9db2-c8fc2232a780
+		lineageTag: 14159af7-d65d-4866-b1e2-a4d5af3b0dd0
 
 	/// One-line dynamic career summary for the selected player.
 	measure 'Player Narrative' =
@@ -471,13 +471,13 @@ table _Measures
 			    "Select a player to see their career line."
 			)
 		displayFolder: 09 Dynamic
-		lineageTag: df467a45-96c0-4cf3-b705-011fcff6929b
+		lineageTag: c0feb8b1-70f2-453c-9ed3-a4b152d6861c
 
 	/// Dynamic headline for the Hall of Fame page.
 	measure 'HOF Headline' =
 			"HALL OF FAMERS HIT " & FORMAT([HOF vs Field HR Multiple], "0.0") & "x THE HOME RUNS OF THE FIELD"
 		displayFolder: 09 Dynamic
-		lineageTag: 136b212c-dbab-4e82-add2-934b3746e1cc
+		lineageTag: def7f736-e523-49be-9824-d08fe7a26063
 
 	/// Gold-star roundel for Hall of Famers, faint dot otherwise. Render in a table image column.
 	measure 'HOF Badge SVG' =
@@ -487,7 +487,7 @@ table _Measures
 			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), IF(_isHof, _red, _gray))
 		dataCategory: ImageUrl
 		displayFolder: 10 Visuals (SVG)
-		lineageTag: 3c2dc08b-9f35-405f-9968-44e8e0e6e278
+		lineageTag: 202b335e-0f1e-4c10-a5c6-2c592ad802b1
 
 	/// Colored archetype pill (Slugger red, Five-Tool blue, Pure Hitter mid-blue, Table-Setter green).
 	measure 'Archetype Pill SVG' =
@@ -499,7 +499,7 @@ table _Measures
 			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg)
 		dataCategory: ImageUrl
 		displayFolder: 10 Visuals (SVG)
-		lineageTag: c1694bc9-f948-4caa-ae1d-45ee08a273f6
+		lineageTag: afe6dbc8-5b57-4d84-b331-a7af086ca778
 
 	/// The Cubs 'C' roundel, shown only for Chicago legends in the data.
 	measure 'Cubs Roundel SVG' =
@@ -508,7 +508,7 @@ table _Measures
 			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]) && _isCub, _svg)
 		dataCategory: ImageUrl
 		displayFolder: 10 Visuals (SVG)
-		lineageTag: 3fe7403a-be86-44f7-aef7-1a6415119992
+		lineageTag: 8c509d54-8a67-4127-874b-27a51b9d9582
 
 	/// Data bar scaled to the field-parameter metric; the leader's bar turns Cubs red.
 	measure 'Rank Bar SVG' =
@@ -524,7 +524,7 @@ table _Measures
 			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg)
 		dataCategory: ImageUrl
 		displayFolder: 10 Visuals (SVG)
-		lineageTag: 34623180-ef05-4216-ae22-d6eb2e3045ba
+		lineageTag: cb45f933-39bf-452b-8aab-c84d1b7e10ca
 
 	/// Per-player percentile bars across six stats vs the full 465-player field; >=90th turns red. Render in an image visual.
 	measure 'Percentile Panel SVG' =
@@ -542,10 +542,29 @@ table _Measures
 			VAR _c5 = MAX(baseball_hits[SB])
 			VAR _p5 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[SB] < _c5)), _n - 1) * 100, 0)
 			VAR _svg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 248 164'>" & "<text x='0' y='15' font-family='Oswald,sans-serif' font-weight='700' font-size='14' fill='#0E3386'>" & UPPER(SELECTEDVALUE(baseball_hits[PLAYER])) & "</text>" & "<text x='248' y='15' font-family='Libre Franklin,sans-serif' font-size='9' fill='#4C5363' text-anchor='end'>PERCENTILE vs " & _n & "</text>" & "<line x1='0' y1='22' x2='248' y2='22' stroke='#EEF2F9' stroke-width='1'/>" & "<text x='0' y='42' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>HITS</text>" & "<rect x='52' y='33' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='33' rx='2' width='" & ROUND(_p0 / 100 * 150, 1) & "' height='11' fill='" & IF(_p0 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='42' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c0, "#,0") & "  &#183;  " & _p0 & "th</text>" & "<text x='0' y='63' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>HR</text>" & "<rect x='52' y='54' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='54' rx='2' width='" & ROUND(_p1 / 100 * 150, 1) & "' height='11' fill='" & IF(_p1 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='63' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c1, "#,0") & "  &#183;  " & _p1 & "th</text>" & "<text x='0' y='84' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>RBI</text>" & "<rect x='52' y='75' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='75' rx='2' width='" & ROUND(_p2 / 100 * 150, 1) & "' height='11' fill='" & IF(_p2 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='84' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c2, "#,0") & "  &#183;  " & _p2 & "th</text>" & "<text x='0' y='105' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>OPS</text>" & "<rect x='52' y='96' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='96' rx='2' width='" & ROUND(_p3 / 100 * 150, 1) & "' height='11' fill='" & IF(_p3 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='105' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c3, "0.000") & "  &#183;  " & _p3 & "th</text>" & "<text x='0' y='126' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>ISO</text>" & "<rect x='52' y='117' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='117' rx='2' width='" & ROUND(_p4 / 100 * 150, 1) & "' height='11' fill='" & IF(_p4 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='126' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c4, "0.000") & "  &#183;  " & _p4 & "th</text>" & "<text x='0' y='147' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>SB</text>" & "<rect x='52' y='138' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='138' rx='2' width='" & ROUND(_p5 / 100 * 150, 1) & "' height='11' fill='" & IF(_p5 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='147' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c5, "#,0") & "  &#183;  " & _p5 & "th</text>" & "</svg>"
-			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg)
+			VAR _blank = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'></svg>"
+			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg, _blank)
 		dataCategory: ImageUrl
 		displayFolder: 10 Visuals (SVG)
-		lineageTag: 350f0037-3ab1-402c-b442-0992d03c1c07
+		lineageTag: 8a7f71e7-a93a-4066-97a3-2fc2e62a4715
+
+	/// Combined identity strip: HOF badge + Cubs roundel (if a Cub) + archetype pill, in one image. Transparent when no player is selected.
+	measure 'Player Identity SVG' =
+			VAR _isHof = MAX(baseball_hits[HOF]) >= 1
+			VAR _isCub = SELECTEDVALUE(baseball_hits[Is Cubs Legend]) = "Cubs Legend"
+			VAR _a = SELECTEDVALUE(baseball_hits[Archetype])
+			VAR _c = SWITCH(_a, "Slugger", "#CC3433", "Five-Tool", "#0E3386", "Pure Hitter", "#4A69A8", "Table-Setter", "#3C7A3F", "#6C7484")
+			VAR _badge = IF(_isHof,
+			    "<g transform='translate(4,7) scale(1.25)'><circle cx='12' cy='12' r='11' fill='#CC3433'/><path d='M12 4 L14.2 9.2 L19.8 9.7 L15.5 13.4 L16.9 19 L12 15.9 L7.1 19 L8.5 13.4 L4.2 9.7 L9.8 9.2 Z' fill='#FFFFFF'/></g>",
+			    "<g transform='translate(4,7) scale(1.25)'><circle cx='12' cy='12' r='9' fill='none' stroke='#C2C7D2' stroke-width='1.5'/><circle cx='12' cy='12' r='2.2' fill='#C2C7D2'/></g>")
+			VAR _roundel = IF(_isCub, "<g transform='translate(40,8)'><circle cx='14' cy='14' r='13' fill='#FFFFFF' stroke='#0E3386' stroke-width='1.5'/><circle cx='14' cy='14' r='8.5' fill='none' stroke='#CC3433' stroke-width='4'/><rect x='17.5' y='9.5' width='9' height='9' fill='#FFFFFF'/><rect x='17.3' y='12' width='5' height='1.6' fill='#CC3433'/><rect x='17.3' y='14.4' width='5' height='1.6' fill='#CC3433'/></g>", "")
+			VAR _pill = "<rect x='78' y='10' rx='13' width='234' height='26' fill='" & _c & "'/><text x='195' y='28' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='13' fill='#FFFFFF' text-anchor='middle'>" & UPPER(_a) & "</text>"
+			VAR _svg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 44'>" & _badge & _roundel & _pill & "</svg>"
+			VAR _blank = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'></svg>"
+			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg, _blank)
+		dataCategory: ImageUrl
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 8545bbe1-256f-4407-ac88-5f7a8e6f5b62
 
 	partition _Measures = calculated
 		mode: import

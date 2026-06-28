@@ -297,9 +297,17 @@ table baseball_hits
 				let
 				  Source = Csv.Document(File.Contents("C:\PBI_Public\data\baseball_hits.csv"), [Delimiter = ",", Columns = 16, QuoteStyle = QuoteStyle.None]),
 				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"PLAYER", type text}, {"YRS", Int64.Type}, {"G", Int64.Type}, {"AB", Int64.Type}, {"R", Int64.Type}, {"H", Int64.Type}, {"2B", Int64.Type}, {"3B", Int64.Type}, {"HR", Int64.Type}, {"RBI", Int64.Type}, {"BB", Int64.Type}, {"SO", Int64.Type}, {"SB", Int64.Type}, {"CS", Int64.Type}, {"BA", type number}, {"HOF", Int64.Type}})
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"PLAYER", type text}, {"YRS", Int64.Type}, {"G", Int64.Type}, {"AB", Int64.Type}, {"R", Int64.Type}, {"H", Int64.Type}, {"2B", Int64.Type}, {"3B", Int64.Type}, {"HR", Int64.Type}, {"RBI", Int64.Type}, {"BB", Int64.Type}, {"SO", Int64.Type}, {"SB", Int64.Type}, {"CS", Int64.Type}, {"BA", type number}, {"HOF", Int64.Type}}),
+				  Grouped = Table.Group(#"Changed column type", {"PLAYER"}, {{"g", each Table.AddIndexColumn(_, "Occ", 1, 1, Int64.Type)}}),
+				  Combined = Table.Combine(Grouped[g]),
+				  Counts = Table.Group(#"Changed column type", {"PLAYER"}, {{"cnt", each Table.RowCount(_), Int64.Type}}),
+				  Merged = Table.NestedJoin(Combined, {"PLAYER"}, Counts, {"PLAYER"}, "c", JoinKind.LeftOuter),
+				  ExpandedCnt = Table.ExpandTableColumn(Merged, "c", {"cnt"}),
+				  Disambiguated = Table.AddColumn(ExpandedCnt, "PlayerUnique", each if [cnt] > 1 then [PLAYER] & " #" & Text.From([Occ]) else [PLAYER], type text),
+				  Cleaned = Table.RemoveColumns(Disambiguated, {"PLAYER", "Occ", "cnt"}),
+				  Renamed = Table.RenameColumns(Cleaned, {{"PlayerUnique", "PLAYER"}})
 				in
-				  #"Changed column type"
+				  Renamed
 
 	annotation PBI_ResultType = Table
 

@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "img-hofbadge",
+  "name": "img-identity",
   "position": {
     "x": 612,
-    "y": 560,
+    "y": 478,
     "z": 0,
-    "width": 86,
-    "height": 86,
+    "width": 420,
+    "height": 54,
     "tabOrder": 0
   },
   "visual": {
@@ -37,7 +37,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "HOF Badge SVG"
+                  "Property": "Player Identity SVG"
                 }
               }
             },

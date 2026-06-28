@@ -1,5 +1,5 @@
 {
-  "name": "leaderboard-tableEx-3b648c",
+  "name": "leaderboard-tableEx-540e99",
   "visual": {
     "visualType": "tableEx",
     "query": {
@@ -19,6 +19,20 @@
                 }
               },
               "nativeQueryRef": "PLAYER"
+            },
+            {
+              "queryRef": "_Measures.HOF Badge SVG",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "HOF Badge SVG"
+                }
+              },
+              "nativeQueryRef": "HOF Badge SVG"
             },
             {
               "queryRef": "_Measures.Total Hits",
@@ -61,34 +75,6 @@
                 }
               },
               "nativeQueryRef": "Batting Average"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "HOF Badge SVG"
-                }
-              },
-              "queryRef": "_Measures.HOF Badge SVG",
-              "nativeQueryRef": "HOF Badge SVG"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Rank Bar SVG"
-                }
-              },
-              "queryRef": "_Measures.Rank Bar SVG",
-              "nativeQueryRef": "Rank Bar SVG"
             }
           ]
         }

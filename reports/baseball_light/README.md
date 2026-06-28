@@ -77,4 +77,5 @@ Custom **Chicago Cubs** theme (`baseball_light.Report/StaticResources/Registered
 
 - Sample data; career regular-season totals only. Rate stats are recomputed from raw counts.
 - OBP/OPS are approximations (no HBP/SF in the source) and are labelled as such.
+- **Duplicate names handled:** the source has two pairs of same-named, different players (two Frank Thomases, two George Burnses). Power Query disambiguates them (`Frank Thomas #1` / `#2`) so every player is a distinct row — otherwise a `PLAYER`-grouped visual sums two careers into one and mis-ranks the leaderboard.
 - Screenshots to be added after the first render in Power BI Desktop.
