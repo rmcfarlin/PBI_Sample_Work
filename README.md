@@ -15,7 +15,7 @@ Everything here is sanitized — structure and technique are real, the underlyin
 | [Data](./data/) | Source data files — CSVs, Excel extracts, raw inputs that feed the models |
 | [Datasets](./datasets/) | Semantic models / data models — relationships, measures, the reusable layer |
 | [Reports](./reports/) | Power BI reports — `.pbip`/`.pbix` projects plus screenshots |
-| [Design systems](./design_systems/) | Reusable brand design systems applied to reports (e.g. Chicago Cubs) |
+| [Design systems](./design_systems/) | Reusable brand design systems applied to reports (e.g. the Ballpark navy/crimson palette) |
 | [Assets](./assets/) | Images used in this README (covers, thumbnails) |
 
 ---
@@ -26,7 +26,7 @@ Everything here is sanitized — structure and technique are real, the underlyin
 
 | Project | Report | Data | Highlights |
 |---|---|---|---|
-| **Career Hitting Leaders** | [baseball_light](./reports/baseball_light/) | [baseball_hits.csv](./data/baseball_hits.csv) | 465 hitters; 61-measure sabermetrics library, dynamic field-parameter leaderboard, Hall-of-Fame analysis, drill-through player profiles — styled with a custom [Chicago Cubs](./design_systems/chicago_cubs/) design system. [Read the writeup →](./reports/baseball_light/README.md) |
+| **Career Hitting Leaders** | [baseball_light](./reports/baseball_light/) | [baseball_hits.csv](./data/baseball_hits.csv) | 465 hitters; 71-measure sabermetrics library, dynamic field-parameter leaderboard, Hall-of-Fame analysis, drill-through player profiles, SVG KPI tiles & icons — styled with a custom [Ballpark](./design_systems/ballpark/) navy/crimson design system. [Read the writeup →](./reports/baseball_light/README.md) |
 
 ---
 

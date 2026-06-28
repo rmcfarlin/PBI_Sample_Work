@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "PLAYER ARCHETYPES & CUBS LEGENDS",
+                    "value": "PLAYER ARCHETYPES",
                     "textStyle": {
                       "fontFamily": "Oswald, 'Arial Narrow', sans-serif",
-                      "fontSize": "28pt",
+                      "fontSize": "30pt",
                       "color": "#FFFFFF",
                       "fontWeight": "bold"
                     }
@@ -33,7 +33,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Every career placed on a power-vs-contact map \u2014 with the Chicago greats called out",
+                    "value": "Every career placed on a power-vs-contact map, split at the dataset medians",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",

@@ -278,19 +278,6 @@ table baseball_hits
 
 		annotation SummarizationSetBy = Automatic
 
-	/// Flags Chicago Cubs greats present in the dataset.
-	column 'Is Cubs Legend' =
-			IF(
-			    baseball_hits[PLAYER] IN { "Cap Anson", "Ernie Banks", "Billy Williams", "Ron Santo", "Mark Grace", "Ryne Sandberg", "Starlin Castro", "Aramis Ramirez", "Gabby Hartnett", "Phil Cavarretta", "Stan Hack", "Charlie Grimm", "Kiki Cuyler", "Frank Schulte", "Joe Tinker", "Jimmy Ryan", "Jimmy Sheckard", "Fred Pfeffer", "Billy Herman", "Don Kessinger" },
-			    "Cubs Legend",
-			    "Other"
-			)
-		dataType: string
-		lineageTag: 31f9f293-40bc-48ce-8a84-27ae9eb7472a
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
 	partition baseball_hits = m
 		mode: import
 		source =

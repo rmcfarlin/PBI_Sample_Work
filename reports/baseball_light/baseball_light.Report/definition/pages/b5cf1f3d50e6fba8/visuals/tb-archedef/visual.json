@@ -114,7 +114,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Click a Cubs legend at right to find them on the map.",
+                    "value": "Click a player at right to find them on the map.",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "10pt",

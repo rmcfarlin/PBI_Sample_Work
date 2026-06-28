@@ -1,8 +1,8 @@
 table 'Rank By'
-	lineageTag: f5a2416b-ab38-4552-a281-e7623b0db71c
+	lineageTag: 582a165c-da8b-426e-b76c-65ca12cc74c5
 
 	column 'Rank By'
-		lineageTag: 1e12643a-be30-4fc5-96b7-e96eeb431821
+		lineageTag: b0cf30af-14b5-4ca0-a49e-eee72a578530
 		summarizeBy: none
 		sourceColumn: [Value1]
 		sortByColumn: 'Rank By Order'
@@ -14,7 +14,7 @@ table 'Rank By'
 
 	column 'Rank By Fields'
 		isHidden
-		lineageTag: 4a455925-7288-4226-91cd-eceb3d32b8f1
+		lineageTag: 202f7924-49d6-4905-9ea1-5ceb6a946b7a
 		summarizeBy: none
 		sourceColumn: [Value2]
 		sortByColumn: 'Rank By Order'
@@ -30,7 +30,7 @@ table 'Rank By'
 	column 'Rank By Order'
 		isHidden
 		formatString: 0
-		lineageTag: d0aac9d0-f198-4c67-9983-bfaa9835bcf8
+		lineageTag: 85ca14ec-61f1-4f77-9a22-5f33ba25b0d2
 		summarizeBy: sum
 		sourceColumn: [Value3]
 
@@ -56,4 +56,4 @@ table 'Rank By'
 				    ("Power-Speed", NAMEOF([Power-Speed Number]), 13)
 				}
 
-	annotation PBI_Id = 46f5a4a223ef40ca871bbad12f57e2a4
+	annotation PBI_Id = 5ce3eaafdd7747e08bfb82b6e6fa61a4

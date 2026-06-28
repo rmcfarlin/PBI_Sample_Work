@@ -1,6 +1,6 @@
 # Baseball — Career Hitting Leaders
 
-A Power BI report on 465 of the game's best hitters, built end-to-end from a flat Kaggle dataset: a clean semantic model, a full sabermetrics measure library, and a four-page interactive report styled with a custom Chicago Cubs design system.
+A Power BI report on 465 of the game's best hitters, built end-to-end from a flat Kaggle dataset: a clean semantic model, a full sabermetrics measure library, and a five-page interactive report styled with a custom navy/crimson/gold "Ballpark" design system.
 
 This is a portfolio piece. The point isn't the baseball trivia — it's the workmanship: correct DAX that aggregates the way rate stats actually should, a dynamic report that re-ranks itself on any metric, and a design system applied through a theme rather than bolted onto each visual.
 
@@ -27,25 +27,25 @@ A couple of things the data does *not* hand you, which the model recovers:
 |---|---|
 | **Leaderboard** | Who leads — by *any* metric. A "Rank By" field parameter re-ranks the whole page (bar chart, title, table) across 14 stats in one click. KPI cards for the headline counts; the table carries inline HOF badges. |
 | **The Hall of Fame Line** | What separates Cooperstown from the field. The signature Hits-vs-HR scatter coloured by HOF status; induction rate by hit-total and OPS band; a sortable, badge-marked table to hunt snubs and compilers. |
-| **Player Profile** | One career, in full. Drill-through target keyed on player — a dynamic narrative line, every counting stat, derived sabermetrics, and a **percentile panel** (SVG) showing where the player ranks across the field, plus archetype/HOF/Cubs identity icons. |
-| **Archetypes & Cubs Legends** | Every career placed on a power-vs-contact map (split at the dataset medians), and the Chicago Cubs greats in the data called out with the Cubs "C" roundel and archetype pills. |
+| **Player Profile** | One career, in full. Drill-through target keyed on player — a dynamic narrative line, every counting stat, derived sabermetrics, and a **percentile panel** (SVG) showing where the player ranks across the field, plus an HOF-badge / archetype identity strip. |
+| **Player Archetypes** | Every career placed on a power-vs-contact map (split at the dataset medians), with an archetype mix donut and an "elite careers" table (top by Runs Created) marked with HOF badges and archetype pills. |
 | **Drill-Down Explorer** | A matrix that expands archetype → Hall-of-Fame status → player, with counts, hits, home runs, OPS and HOF rate at every level. |
 
 **What makes it dynamic:** a field parameter driving the leaderboard, measure-driven titles that rewrite themselves with the selection (e.g. *"TOP HITTERS BY HOME RUNS"*, *"HALL OF FAMERS HIT 3.x THE HOME RUNS OF THE FIELD"*), drill-through from any player mark to the profile page, drill-down through the Explorer matrix, and `RANKX`-based percentile/rank measures.
 
-**Custom SVG visuals (DAX `ImageUrl` measures, no custom-visual imports):** gold-star HOF badges and faint dots in tables; Cubby-blue data bars with the leader in red; the Chicago Cubs "C" roundel for legends; colour-coded archetype pills; and a six-stat percentile panel that turns a bar red above the 90th percentile. All are DAX measures returning inline SVG — they render in native table, matrix, and image visuals.
+**Custom SVG visuals (DAX `ImageUrl` measures, no custom-visual imports):** icon-led KPI tiles (roster, baseball, gold star, medal, home-run trajectory); gold-star HOF badges and faint dots in tables; navy data bars with the leader in red; colour-coded archetype pills; an HOF-badge + archetype identity strip; and a six-stat percentile panel that turns a bar red above the 90th percentile. All are DAX measures returning inline SVG — they render in native table, matrix, and image visuals.
 
 ---
 
 ## The measure library
 
-66 measures on a dedicated `_Measures` table, organised into display folders (Counting, Rate Stats, Power, Discipline, Speed, Value, Hall of Fame, Profile, Dynamic, and SVG visuals). Highlights:
+71 measures on a dedicated `_Measures` table, organised into display folders (Counting, Rate Stats, Power, Discipline, Speed, Value, Hall of Fame, Profile, Dynamic, and SVG visuals). Highlights:
 
 - **Rate stats done right.** Batting average, OBP, slugging, OPS, ISO are all computed as `DIVIDE(SUM(num), SUM(denom))` — never an average of per-row ratios. That's the difference between a number that's correct at any grain (one player, a band, the whole league) and one that quietly mis-weights as soon as you group.
 - **Sabermetrics from raw totals:** Total Bases, Extra-Base Hits, Runs Created (Bill James basic), Power-Speed Number, BB/K, SB success %, AB/HR, per-162 rates.
 - **A dynamic engine:** a "Rank By" field parameter, a `Selected Metric Value` switch (with a dynamic format string so counts and rates each format correctly), and `RANKX` measures for rank and percentile.
 
-Twelve calculated columns add per-player sabermetrics, hit/OPS bands, a power-vs-contact archetype, and a Cubs-legend flag.
+Eleven calculated columns add per-player sabermetrics, hit/OPS bands, and a power-vs-contact archetype.
 
 The model was validated structurally (TMDL syntax, referential integrity, acyclic calculated-column dependencies, field-parameter wiring) — 0 errors.
 
@@ -65,11 +65,11 @@ Findings computed directly from the file (real numbers, not estimates):
 
 ## Design system
 
-Custom **Chicago Cubs** theme (`baseball_light.Report/StaticResources/RegisteredResources/Chicago Cubs.json`), built from the tokens in `../../design_systems/chicago_cubs/`:
+Custom **Ballpark** theme (`baseball_light.Report/StaticResources/RegisteredResources/Ballpark.json`), built from the tokens in `../../design_systems/ballpark/`:
 
-- **Colour:** Cubby Blue `#0E3386` (primary), Cubs Red `#CC3433` (accent), white, with supporting neutrals and field/ivy greens and gold.
+- **Colour:** navy `#0E3386` (primary), crimson `#CC3433` (accent/leader), gold `#C8A24B` (Hall-of-Fame emphasis), white, with supporting neutrals and field/ivy greens.
 - **Type:** Oswald (display, uppercase headings), Libre Franklin (body), Roboto Mono (numerics where used).
-- Applied through the theme — wildcard and per-visual-type styles — so visuals inherit the look rather than carrying bespoke formatting. Header bands and the Cubs blue/white palette carry the brand.
+- Applied through the theme — wildcard and per-visual-type styles — so visuals inherit the look rather than carrying bespoke formatting. Navy header bands and the navy/white palette carry the look.
 
 ---
 
