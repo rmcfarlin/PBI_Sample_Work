@@ -49,18 +49,32 @@
               "nativeQueryRef": "Total Home Runs"
             },
             {
-              "queryRef": "baseball_hits.Archetype",
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "baseball_hits"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "Archetype"
+                  "Property": "Cubs Roundel SVG"
                 }
               },
-              "nativeQueryRef": "Archetype"
+              "queryRef": "_Measures.Cubs Roundel SVG",
+              "nativeQueryRef": "Cubs Roundel SVG"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Archetype Pill SVG"
+                }
+              },
+              "queryRef": "_Measures.Archetype Pill SVG",
+              "nativeQueryRef": "Archetype Pill SVG"
             }
           ]
         }
@@ -84,7 +98,21 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [

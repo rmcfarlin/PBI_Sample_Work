@@ -21,20 +21,6 @@
               "nativeQueryRef": "PLAYER"
             },
             {
-              "queryRef": "baseball_hits.YRS",
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "baseball_hits"
-                    }
-                  },
-                  "Property": "YRS"
-                }
-              },
-              "nativeQueryRef": "YRS"
-            },
-            {
               "queryRef": "_Measures.Total Hits",
               "field": {
                 "Measure": {
@@ -77,18 +63,32 @@
               "nativeQueryRef": "Batting Average"
             },
             {
-              "queryRef": "baseball_hits.HOF Status",
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "baseball_hits"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "HOF Status"
+                  "Property": "HOF Badge SVG"
                 }
               },
-              "nativeQueryRef": "HOF Status"
+              "queryRef": "_Measures.HOF Badge SVG",
+              "nativeQueryRef": "HOF Badge SVG"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rank Bar SVG"
+                }
+              },
+              "queryRef": "_Measures.Rank Bar SVG",
+              "nativeQueryRef": "Rank Bar SVG"
             }
           ]
         }
@@ -112,7 +112,21 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [

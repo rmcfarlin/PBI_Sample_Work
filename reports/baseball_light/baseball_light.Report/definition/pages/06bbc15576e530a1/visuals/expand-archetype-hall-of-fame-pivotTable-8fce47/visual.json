@@ -1,11 +1,39 @@
 {
-  "name": "borderline-cases-sort-any-colu-tableEx-d6aff9",
+  "name": "expand-archetype-hall-of-fame-pivotTable-8fce47",
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Values": {
+        "Rows": {
           "projections": [
+            {
+              "queryRef": "baseball_hits.Archetype",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "Archetype"
+                }
+              },
+              "nativeQueryRef": "Archetype"
+            },
+            {
+              "queryRef": "baseball_hits.HOF Status",
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "baseball_hits"
+                    }
+                  },
+                  "Property": "HOF Status"
+                }
+              },
+              "nativeQueryRef": "HOF Status"
+            },
             {
               "queryRef": "baseball_hits.PLAYER",
               "field": {
@@ -19,6 +47,24 @@
                 }
               },
               "nativeQueryRef": "PLAYER"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "queryRef": "_Measures.Total Players",
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Players"
+                }
+              },
+              "nativeQueryRef": "Total Players"
             },
             {
               "queryRef": "_Measures.Total Hits",
@@ -49,20 +95,6 @@
               "nativeQueryRef": "Total Home Runs"
             },
             {
-              "queryRef": "_Measures.Total RBI",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total RBI"
-                }
-              },
-              "nativeQueryRef": "Total RBI"
-            },
-            {
               "queryRef": "_Measures.OPS (approx)",
               "field": {
                 "Measure": {
@@ -77,6 +109,7 @@
               "nativeQueryRef": "OPS (approx)"
             },
             {
+              "queryRef": "_Measures.HOF Rate",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -84,11 +117,10 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "HOF Badge SVG"
+                  "Property": "HOF Rate"
                 }
               },
-              "queryRef": "_Measures.HOF Badge SVG",
-              "nativeQueryRef": "HOF Badge SVG"
+              "nativeQueryRef": "HOF Rate"
             }
           ]
         }
@@ -103,7 +135,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "OPS (approx)"
+                "Property": "Total Players"
               }
             },
             "direction": "Descending"
@@ -112,21 +144,7 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "grid": [
-        {
-          "properties": {
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
+    "objects": {},
     "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
@@ -142,7 +160,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'BORDERLINE CASES — SORT ANY COLUMN TO EXPLORE SNUBS & COMPILERS'"
+                  "Value": "'EXPAND ARCHETYPE → HALL OF FAME STATUS → PLAYER'"
                 }
               }
             }
@@ -166,10 +184,10 @@
   },
   "position": {
     "x": 24,
-    "y": 544,
+    "y": 108,
     "z": 0,
     "width": 1232,
-    "height": 152,
+    "height": 584,
     "tabOrder": 0
   },
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"

@@ -25,18 +25,21 @@ A couple of things the data does *not* hand you, which the model recovers:
 
 | Page | What it answers |
 |---|---|
-| **Leaderboard** | Who leads — by *any* metric. A "Rank By" field parameter re-ranks the whole page (bar chart, title, table) across 14 stats in one click. KPI cards for the headline counts. |
-| **The Hall of Fame Line** | What separates Cooperstown from the field. The signature Hits-vs-HR scatter coloured by HOF status; induction rate by hit-total and OPS band; a sortable table to hunt snubs and compilers. |
-| **Player Profile** | One career, in full. Drill-through target keyed on player — a dynamic narrative line, every counting stat, derived sabermetrics, and rank-vs-field cards. |
-| **Archetypes & Cubs Legends** | Every career placed on a power-vs-contact map (split at the dataset medians), and the Chicago Cubs greats in the data called out. |
+| **Leaderboard** | Who leads — by *any* metric. A "Rank By" field parameter re-ranks the whole page (bar chart, title, table) across 14 stats in one click. KPI cards for the headline counts; the table carries inline HOF badges. |
+| **The Hall of Fame Line** | What separates Cooperstown from the field. The signature Hits-vs-HR scatter coloured by HOF status; induction rate by hit-total and OPS band; a sortable, badge-marked table to hunt snubs and compilers. |
+| **Player Profile** | One career, in full. Drill-through target keyed on player — a dynamic narrative line, every counting stat, derived sabermetrics, and a **percentile panel** (SVG) showing where the player ranks across the field, plus archetype/HOF/Cubs identity icons. |
+| **Archetypes & Cubs Legends** | Every career placed on a power-vs-contact map (split at the dataset medians), and the Chicago Cubs greats in the data called out with the Cubs "C" roundel and archetype pills. |
+| **Drill-Down Explorer** | A matrix that expands archetype → Hall-of-Fame status → player, with counts, hits, home runs, OPS and HOF rate at every level. |
 
-**What makes it dynamic:** a field parameter driving the leaderboard, measure-driven titles that rewrite themselves with the selection (e.g. *"TOP HITTERS BY HOME RUNS"*, *"HALL OF FAMERS HIT 3.x THE HOME RUNS OF THE FIELD"*), drill-through from any player mark to the profile page, and `RANKX`-based percentile/rank measures.
+**What makes it dynamic:** a field parameter driving the leaderboard, measure-driven titles that rewrite themselves with the selection (e.g. *"TOP HITTERS BY HOME RUNS"*, *"HALL OF FAMERS HIT 3.x THE HOME RUNS OF THE FIELD"*), drill-through from any player mark to the profile page, drill-down through the Explorer matrix, and `RANKX`-based percentile/rank measures.
+
+**Custom SVG visuals (DAX `ImageUrl` measures, no custom-visual imports):** gold-star HOF badges and faint dots in tables; Cubby-blue data bars with the leader in red; the Chicago Cubs "C" roundel for legends; colour-coded archetype pills; and a six-stat percentile panel that turns a bar red above the 90th percentile. All are DAX measures returning inline SVG — they render in native table, matrix, and image visuals.
 
 ---
 
 ## The measure library
 
-61 measures on a dedicated `_Measures` table, organised into display folders (Counting, Rate Stats, Power, Discipline, Speed, Value, Hall of Fame, Profile, Dynamic). Highlights:
+66 measures on a dedicated `_Measures` table, organised into display folders (Counting, Rate Stats, Power, Discipline, Speed, Value, Hall of Fame, Profile, Dynamic, and SVG visuals). Highlights:
 
 - **Rate stats done right.** Batting average, OBP, slugging, OPS, ISO are all computed as `DIVIDE(SUM(num), SUM(denom))` — never an average of per-row ratios. That's the difference between a number that's correct at any grain (one player, a band, the whole league) and one that quietly mis-weights as soon as you group.
 - **Sabermetrics from raw totals:** Total Bases, Extra-Base Hits, Runs Created (Bill James basic), Power-Speed Number, BB/K, SB success %, AB/HR, per-162 rates.
