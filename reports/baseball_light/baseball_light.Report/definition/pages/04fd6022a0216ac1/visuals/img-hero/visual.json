@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "img-percentile",
+  "name": "img-hero",
   "position": {
-    "x": 886,
-    "y": 286,
+    "x": 270,
+    "y": 24,
     "z": 5,
-    "width": 370,
-    "height": 420,
+    "width": 986,
+    "height": 86,
     "tabOrder": 0
   },
   "visual": {
@@ -37,7 +37,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Percentile Panel SVG"
+                  "Property": "Profile Hero SVG"
                 }
               }
             },

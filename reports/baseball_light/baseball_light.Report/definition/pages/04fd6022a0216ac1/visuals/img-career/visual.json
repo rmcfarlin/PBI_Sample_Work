@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "img-identity",
+  "name": "img-career",
   "position": {
-    "x": 612,
-    "y": 478,
-    "z": 0,
-    "width": 420,
-    "height": 54,
+    "x": 270,
+    "y": 122,
+    "z": 5,
+    "width": 986,
+    "height": 150,
     "tabOrder": 0
   },
   "visual": {
@@ -37,7 +37,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Player Identity SVG"
+                  "Property": "Career Totals Panel SVG"
                 }
               }
             },

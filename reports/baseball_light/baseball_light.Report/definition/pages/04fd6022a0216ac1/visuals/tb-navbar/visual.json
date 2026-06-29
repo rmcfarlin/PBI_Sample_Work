@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "tb-header",
+  "name": "tb-navbar",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "width": 1280,
-    "height": 92,
+    "width": 250,
+    "height": 720,
     "tabOrder": 0
   },
   "visual": {
@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "PLAYER PROFILE",
+                    "value": "PLAYER",
                     "textStyle": {
                       "fontFamily": "Oswald, 'Arial Narrow', sans-serif",
-                      "fontSize": "30pt",
+                      "fontSize": "22pt",
                       "color": "#FFFFFF",
                       "fontWeight": "bold"
                     }
@@ -33,11 +33,39 @@
               {
                 "textRuns": [
                   {
-                    "value": "Pick a player \u2014 or drill through from any chart \u2014 for the full career line and ranks vs the field",
+                    "value": "PROFILE",
+                    "textStyle": {
+                      "fontFamily": "Oswald, 'Arial Narrow', sans-serif",
+                      "fontSize": "22pt",
+                      "color": "#FFFFFF",
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
-                      "fontSize": "12pt",
-                      "color": "#D6DEEE"
+                      "fontSize": "6pt",
+                      "color": "#FFFFFF"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "SELECT A PLAYER",
+                    "textStyle": {
+                      "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+                      "fontSize": "10pt",
+                      "color": "#9DB2DC",
+                      "fontWeight": "bold"
                     }
                   }
                 ],
@@ -47,7 +75,7 @@
             "verticalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'middle'"
+                  "Value": "'top'"
                 }
               }
             }

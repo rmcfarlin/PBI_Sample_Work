@@ -534,28 +534,6 @@ table _Measures
 		displayFolder: 10 Visuals (SVG)
 		lineageTag: 5efd750a-c0c0-4b5d-8e05-7682618271df
 
-	/// Per-player percentile bars across six stats vs the full 465-player field; >=90th turns red. Render in an image visual.
-	measure 'Percentile Panel SVG' =
-			VAR _n = COUNTROWS(ALL(baseball_hits))
-			VAR _c0 = MAX(baseball_hits[H])
-			VAR _p0 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[H] < _c0)), _n - 1) * 100, 0)
-			VAR _c1 = MAX(baseball_hits[HR])
-			VAR _p1 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[HR] < _c1)), _n - 1) * 100, 0)
-			VAR _c2 = MAX(baseball_hits[RBI])
-			VAR _p2 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[RBI] < _c2)), _n - 1) * 100, 0)
-			VAR _c3 = MAX(baseball_hits[Player OPS])
-			VAR _p3 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[Player OPS] < _c3)), _n - 1) * 100, 0)
-			VAR _c4 = MAX(baseball_hits[Player ISO])
-			VAR _p4 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[Player ISO] < _c4)), _n - 1) * 100, 0)
-			VAR _c5 = MAX(baseball_hits[SB])
-			VAR _p5 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[SB] < _c5)), _n - 1) * 100, 0)
-			VAR _svg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 248 164'>" & "<text x='0' y='15' font-family='Oswald,sans-serif' font-weight='700' font-size='14' fill='#0E3386'>" & UPPER(SELECTEDVALUE(baseball_hits[PLAYER])) & "</text>" & "<text x='248' y='15' font-family='Libre Franklin,sans-serif' font-size='9' fill='#4C5363' text-anchor='end'>PERCENTILE vs " & _n & "</text>" & "<line x1='0' y1='22' x2='248' y2='22' stroke='#EEF2F9' stroke-width='1'/>" & "<text x='0' y='42' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>HITS</text>" & "<rect x='52' y='33' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='33' rx='2' width='" & ROUND(_p0 / 100 * 150, 1) & "' height='11' fill='" & IF(_p0 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='42' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c0, "#,0") & "  &#183;  " & _p0 & SWITCH(TRUE(), MOD(_p0, 100) >= 11 && MOD(_p0, 100) <= 13, "th", MOD(_p0, 10) = 1, "st", MOD(_p0, 10) = 2, "nd", MOD(_p0, 10) = 3, "rd", "th") & "</text>" & "<text x='0' y='63' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>HR</text>" & "<rect x='52' y='54' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='54' rx='2' width='" & ROUND(_p1 / 100 * 150, 1) & "' height='11' fill='" & IF(_p1 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='63' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c1, "#,0") & "  &#183;  " & _p1 & SWITCH(TRUE(), MOD(_p1, 100) >= 11 && MOD(_p1, 100) <= 13, "th", MOD(_p1, 10) = 1, "st", MOD(_p1, 10) = 2, "nd", MOD(_p1, 10) = 3, "rd", "th") & "</text>" & "<text x='0' y='84' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>RBI</text>" & "<rect x='52' y='75' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='75' rx='2' width='" & ROUND(_p2 / 100 * 150, 1) & "' height='11' fill='" & IF(_p2 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='84' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c2, "#,0") & "  &#183;  " & _p2 & SWITCH(TRUE(), MOD(_p2, 100) >= 11 && MOD(_p2, 100) <= 13, "th", MOD(_p2, 10) = 1, "st", MOD(_p2, 10) = 2, "nd", MOD(_p2, 10) = 3, "rd", "th") & "</text>" & "<text x='0' y='105' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>OPS</text>" & "<rect x='52' y='96' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='96' rx='2' width='" & ROUND(_p3 / 100 * 150, 1) & "' height='11' fill='" & IF(_p3 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='105' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c3, "0.000") & "  &#183;  " & _p3 & SWITCH(TRUE(), MOD(_p3, 100) >= 11 && MOD(_p3, 100) <= 13, "th", MOD(_p3, 10) = 1, "st", MOD(_p3, 10) = 2, "nd", MOD(_p3, 10) = 3, "rd", "th") & "</text>" & "<text x='0' y='126' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>ISO</text>" & "<rect x='52' y='117' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='117' rx='2' width='" & ROUND(_p4 / 100 * 150, 1) & "' height='11' fill='" & IF(_p4 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='126' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c4, "0.000") & "  &#183;  " & _p4 & SWITCH(TRUE(), MOD(_p4, 100) >= 11 && MOD(_p4, 100) <= 13, "th", MOD(_p4, 10) = 1, "st", MOD(_p4, 10) = 2, "nd", MOD(_p4, 10) = 3, "rd", "th") & "</text>" & "<text x='0' y='147' font-family='Libre Franklin,sans-serif' font-weight='600' font-size='10' fill='#12141C'>SB</text>" & "<rect x='52' y='138' rx='4' width='150' height='11' fill='#EEF2F9'/>" & "<rect x='52' y='138' rx='2' width='" & ROUND(_p5 / 100 * 150, 1) & "' height='11' fill='" & IF(_p5 >= 90, "#CC3433", "#0E3386") & "'/>" & "<text x='248' y='147' font-family='Oswald,sans-serif' font-size='11' fill='#12141C' text-anchor='end'>" & FORMAT(_c5, "#,0") & "  &#183;  " & _p5 & SWITCH(TRUE(), MOD(_p5, 100) >= 11 && MOD(_p5, 100) <= 13, "th", MOD(_p5, 10) = 1, "st", MOD(_p5, 10) = 2, "nd", MOD(_p5, 10) = 3, "rd", "th") & "</text>" & "</svg>"
-			VAR _blank = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'></svg>"
-			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg, _blank)
-		dataCategory: ImageUrl
-		displayFolder: 10 Visuals (SVG)
-		lineageTag: 64f2bce1-61ec-493d-b60b-75b574f00058
-
 	/// Identity strip: HOF badge (gold star if inducted) + archetype pill, in one image. Transparent when no player is selected.
 	measure 'Player Identity SVG' =
 			VAR _isHof = MAX(baseball_hits[HOF]) >= 1
@@ -606,6 +584,123 @@ table _Measures
 		dataCategory: ImageUrl
 		displayFolder: 10 Visuals (SVG)
 		lineageTag: d4a7af4d-a984-4b26-90cd-a644418eef15
+
+	/// Hero strip: player name, gold HOF badge, archetype pill, and a one-line career summary. Empty-state prompt when no player is selected.
+	measure 'Profile Hero SVG' =
+			VAR _p = SELECTEDVALUE(baseball_hits[PLAYER])
+			VAR _isHof = MAX(baseball_hits[HOF]) >= 1
+			VAR _arch = SELECTEDVALUE(baseball_hits[Archetype])
+			VAR _c = SWITCH(_arch, "Slugger", "#CC3433", "Five-Tool", "#0E3386", "Pure Hitter", "#4A69A8", "Table-Setter", "#3C7A3F", "#4C5363")
+			VAR _pillw = 16 + LEN(_arch) * 9.6
+			VAR _nx = IF(_isHof, 30, 0)
+			VAR _badge = IF(_isHof, "<g transform='translate(0,3) scale(0.95)'><circle cx='12' cy='12' r='11' fill='#C8A24B'/><path d='M12 4 L14.2 9.2 L19.8 9.7 L15.5 13.4 L16.9 19 L12 15.9 L7.1 19 L8.5 13.4 L4.2 9.7 L9.8 9.2 Z' fill='#FFFFFF'/></g>", "")
+			VAR _narr = FORMAT([Total Seasons], "0") & " seasons" & "  &#8226;  " & FORMAT([Total Hits], "#,0") & " H" & "  &#8226;  " & FORMAT([Total Home Runs], "#,0") & " HR" & "  &#8226;  " & FORMAT([Total RBI], "#,0") & " RBI" & "  &#8226;  " & FORMAT([Batting Average], "#.000") & " AVG" & "  &#8226;  " & FORMAT([OPS (approx)], "#.000") & " OPS"
+			VAR _svg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 980 86'>" & _badge
+			    & "<text x='" & _nx & "' y='30' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='#0E3386'>" & UPPER(_p) & "</text>"
+			    & "<g transform='translate(" & _nx & ",44)'><rect x='0' y='0' rx='12' width='" & _pillw & "' height='24' fill='" & _c & "'/><text x='" & _pillw / 2 & "' y='16.5' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#FFFFFF' text-anchor='middle'>" & UPPER(_arch) & "</text></g>"
+			    & "<text x='980' y='30' font-family='Libre Franklin, sans-serif' font-size='13' fill='#4C5363' text-anchor='end'>" & _narr & "</text></svg>"
+			VAR _empty = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 980 86'><path d='M40 43 L20 43 M28 35 L18 43 L28 51' fill='none' stroke='#CC3433' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/><text x='60' y='38' font-family='Oswald, sans-serif' font-weight='700' font-size='26' fill='#D6DEEE'>SELECT A PLAYER</text><text x='60' y='62' font-family='Libre Franklin, sans-serif' font-size='13' fill='#9AA1B0'>Choose a name from the list on the left to load a full career profile.</text></svg>"
+			RETURN IF(HASONEVALUE(baseball_hits[PLAYER]), _svg, _empty)
+		dataCategory: ImageUrl
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 0d7a4d57-56cf-4004-935c-e6bf75538431
+
+	/// Twelve career counting totals in a clean grid (G..CS). Shows dashes when no player is selected.
+	measure 'Career Totals Panel SVG' =
+			VAR _has = HASONEVALUE(baseball_hits[PLAYER])
+			VAR _ct0 = IF(_has, FORMAT([Total Games], "#,0"), "&#8212;")
+			VAR _ct1 = IF(_has, FORMAT([Total At-Bats], "#,0"), "&#8212;")
+			VAR _ct2 = IF(_has, FORMAT([Total Runs], "#,0"), "&#8212;")
+			VAR _ct3 = IF(_has, FORMAT([Total Hits], "#,0"), "&#8212;")
+			VAR _ct4 = IF(_has, FORMAT([Total Doubles], "#,0"), "&#8212;")
+			VAR _ct5 = IF(_has, FORMAT([Total Triples], "#,0"), "&#8212;")
+			VAR _ct6 = IF(_has, FORMAT([Total Home Runs], "#,0"), "&#8212;")
+			VAR _ct7 = IF(_has, FORMAT([Total RBI], "#,0"), "&#8212;")
+			VAR _ct8 = IF(_has, FORMAT([Total Walks], "#,0"), "&#8212;")
+			VAR _ct9 = IF(_has, FORMAT([Total Strikeouts], "#,0"), "&#8212;")
+			VAR _ct10 = IF(_has, FORMAT([Total Stolen Bases], "#,0"), "&#8212;")
+			VAR _ct11 = IF(_has, FORMAT([Total Caught Stealing], "#,0"), "&#8212;")
+			RETURN
+			"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 980 150'><text x='0' y='14' font-family='Oswald, sans-serif' font-weight='700' font-size='13' fill='#0E3386'>CAREER TOTALS</text><line x1='0' y1='22' x2='980' y2='22' stroke='#EEF2F9' stroke-width='1'/>"
+			    & "<text x='81' y='44' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct0 & "</text><text x='81' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>G</text>"
+			    & "<text x='245' y='44' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct1 & "</text><text x='245' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>AB</text>"
+			    & "<text x='408' y='44' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct2 & "</text><text x='408' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>R</text>"
+			    & "<text x='571' y='44' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct3 & "</text><text x='571' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>H</text>"
+			    & "<text x='735' y='44' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct4 & "</text><text x='735' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>2B</text>"
+			    & "<text x='898' y='44' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct5 & "</text><text x='898' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>3B</text>"
+			    & "<text x='81' y='102' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct6 & "</text><text x='81' y='120' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>HR</text>"
+			    & "<text x='245' y='102' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct7 & "</text><text x='245' y='120' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>RBI</text>"
+			    & "<text x='408' y='102' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct8 & "</text><text x='408' y='120' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>BB</text>"
+			    & "<text x='571' y='102' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct9 & "</text><text x='571' y='120' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>SO</text>"
+			    & "<text x='735' y='102' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct10 & "</text><text x='735' y='120' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>SB</text>"
+			    & "<text x='898' y='102' font-family='Oswald, sans-serif' font-weight='600' font-size='26' fill='#0E3386' text-anchor='middle'>" & _ct11 & "</text><text x='898' y='120' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>CS</text>"
+			    & "</svg>"
+		dataCategory: ImageUrl
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 8e613792-b59d-4497-88c1-d220bb348498
+
+	/// Eight rate/value stats as icon tiles (AVG, OBP, SLG, OPS, ISO, BB/K, SB%, AB/HR). Dashes when no player is selected.
+	measure 'Sabermetrics Panel SVG' =
+			VAR _has = HASONEVALUE(baseball_hits[PLAYER])
+			VAR _sb0 = IF(_has, FORMAT([Batting Average], "#.000"), "&#8212;")
+			VAR _sb1 = IF(_has, FORMAT([On-Base Pct (approx)], "#.000"), "&#8212;")
+			VAR _sb2 = IF(_has, FORMAT([Slugging Pct], "#.000"), "&#8212;")
+			VAR _sb3 = IF(_has, FORMAT([OPS (approx)], "#.000"), "&#8212;")
+			VAR _sb4 = IF(_has, FORMAT([Isolated Power (ISO)], "#.000"), "&#8212;")
+			VAR _sb5 = IF(_has, FORMAT([BB per K], "0.00"), "&#8212;")
+			VAR _sb6 = IF(_has, FORMAT([SB Success Pct], "0.0%"), "&#8212;")
+			VAR _sb7 = IF(_has, FORMAT([AB per HR], "0.0"), "&#8212;")
+			RETURN
+			"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 424'><text x='0' y='14' font-family='Oswald, sans-serif' font-weight='700' font-size='13' fill='#0E3386'>RATE &amp; VALUE</text>"
+			    & "<rect x='0' y='26' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='0' y='26' rx='10' width='141' height='4' fill='#0E3386'/><g transform='translate(16,46)' fill='none' stroke='#0E3386' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><circle cx='10' cy='10' r='8' stroke='#0E3386'/><path d='M5 4 A 8 8 0 0 0 5 16' stroke='#CC3433'/><path d='M15 4 A 8 8 0 0 1 15 16' stroke='#CC3433'/></g>" & "<text x='70' y='136' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb0 & "</text>" & "<text x='70' y='204' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>BATTING AVG</text>"
+			    & "<rect x='153' y='26' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='153' y='26' rx='10' width='141' height='4' fill='#0E3386'/><g transform='translate(169,46)' fill='none' stroke='#0E3386' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M10 3 L17 9 L10 17 L3 9 Z' stroke='#0E3386'/><circle cx='10' cy='10' r='1.6' fill='#0E3386' stroke='none'/></g>" & "<text x='223' y='136' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb1 & "</text>" & "<text x='223' y='204' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>ON-BASE %</text>"
+			    & "<rect x='306' y='26' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='306' y='26' rx='10' width='141' height='4' fill='#0E3386'/><g transform='translate(322,46)' fill='none' stroke='#0E3386' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='12' width='3.4' height='5' rx='1' fill='#0E3386' stroke='none'/><rect x='8.3' y='8' width='3.4' height='9' rx='1' fill='#0E3386' stroke='none'/><rect x='13.6' y='4' width='3.4' height='13' rx='1' fill='#0E3386' stroke='none'/></g>" & "<text x='376' y='136' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb2 & "</text>" & "<text x='376' y='204' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>SLUGGING %</text>"
+			    & "<rect x='459' y='26' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='459' y='26' rx='10' width='141' height='4' fill='#0E3386'/><g transform='translate(475,46)' fill='none' stroke='#0E3386' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M10 2 L12.4 7.6 L18.5 8.1 L13.8 12 L15.3 18 L10 14.7 L4.7 18 L6.2 12 L1.5 8.1 L7.6 7.6 Z' fill='#0E3386' stroke='none'/></g>" & "<text x='529' y='136' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb3 & "</text>" & "<text x='529' y='204' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>OPS</text>"
+			    & "<rect x='0' y='232' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='0' y='232' rx='10' width='141' height='4' fill='#CC3433'/><g transform='translate(16,252)' fill='none' stroke='#CC3433' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M3 15 Q 10 1 17 8' stroke='#CC3433'/><circle cx='17' cy='8' r='2.4' fill='#CC3433' stroke='none'/></g>" & "<text x='70' y='342' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb4 & "</text>" & "<text x='70' y='410' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>ISO</text>"
+			    & "<rect x='153' y='232' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='153' y='232' rx='10' width='141' height='4' fill='#4A69A8'/><g transform='translate(169,252)' fill='none' stroke='#4A69A8' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M10 3 V 16' stroke='#4A69A8'/><path d='M4 6 H 16' stroke='#4A69A8'/><path d='M4 6 L2 11 H6 Z' fill='#4A69A8' stroke='none'/><path d='M16 6 L14 11 H18 Z' fill='#4A69A8' stroke='none'/><path d='M7 17 H 13' stroke='#4A69A8'/></g>" & "<text x='223' y='342' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb5 & "</text>" & "<text x='223' y='410' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>BB / K</text>"
+			    & "<rect x='306' y='232' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='306' y='232' rx='10' width='141' height='4' fill='#3C7A3F'/><g transform='translate(322,252)' fill='none' stroke='#3C7A3F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M4 6 L9 10 L4 14' stroke='#3C7A3F'/><path d='M10 6 L15 10 L10 14' stroke='#3C7A3F'/></g>" & "<text x='376' y='342' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb6 & "</text>" & "<text x='376' y='410' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>SB SUCCESS</text>"
+			    & "<rect x='459' y='232' rx='10' width='141' height='192' fill='#F7F8FA' stroke='#DCDFE6' stroke-width='1'/><rect x='459' y='232' rx='10' width='141' height='4' fill='#CC3433'/><g transform='translate(475,252)' fill='none' stroke='#CC3433' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><circle cx='10' cy='10' r='8' stroke='#CC3433'/><circle cx='10' cy='10' r='4' stroke='#CC3433'/><circle cx='10' cy='10' r='1' fill='#CC3433' stroke='none'/></g>" & "<text x='529' y='342' font-family='Oswald, sans-serif' font-weight='700' font-size='30' fill='" & IF(_has,"#0E3386","#9AA1B0") & "' text-anchor='middle'>" & _sb7 & "</text>" & "<text x='529' y='410' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='11' fill='#4C5363' text-anchor='middle'>AB / HR</text>"
+			    & "</svg>"
+		dataCategory: ImageUrl
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 20ab5207-3947-4ef5-8719-ac03e8dec789
+
+	/// Six-stat percentile ranks vs the full field (>=90th turns crimson) with a clear empty state.
+	measure 'Percentile Panel SVG' =
+			VAR _n = COUNTROWS(ALL(baseball_hits))
+			VAR _has = HASONEVALUE(baseball_hits[PLAYER])
+			VAR _c0 = MAX(baseball_hits[H])
+			VAR _p0 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[H] < _c0)), _n - 1) * 100, 0)
+			VAR _o0 = _p0 & SWITCH(TRUE(), _p0 >= 10 && _p0 <= 20, "th", MOD(_p0,10)=1, "st", MOD(_p0,10)=2, "nd", MOD(_p0,10)=3, "rd", "th")
+			VAR _c1 = MAX(baseball_hits[HR])
+			VAR _p1 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[HR] < _c1)), _n - 1) * 100, 0)
+			VAR _o1 = _p1 & SWITCH(TRUE(), _p1 >= 10 && _p1 <= 20, "th", MOD(_p1,10)=1, "st", MOD(_p1,10)=2, "nd", MOD(_p1,10)=3, "rd", "th")
+			VAR _c2 = MAX(baseball_hits[RBI])
+			VAR _p2 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[RBI] < _c2)), _n - 1) * 100, 0)
+			VAR _o2 = _p2 & SWITCH(TRUE(), _p2 >= 10 && _p2 <= 20, "th", MOD(_p2,10)=1, "st", MOD(_p2,10)=2, "nd", MOD(_p2,10)=3, "rd", "th")
+			VAR _c3 = MAX(baseball_hits[Player OPS])
+			VAR _p3 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[Player OPS] < _c3)), _n - 1) * 100, 0)
+			VAR _o3 = _p3 & SWITCH(TRUE(), _p3 >= 10 && _p3 <= 20, "th", MOD(_p3,10)=1, "st", MOD(_p3,10)=2, "nd", MOD(_p3,10)=3, "rd", "th")
+			VAR _c4 = MAX(baseball_hits[Player ISO])
+			VAR _p4 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[Player ISO] < _c4)), _n - 1) * 100, 0)
+			VAR _o4 = _p4 & SWITCH(TRUE(), _p4 >= 10 && _p4 <= 20, "th", MOD(_p4,10)=1, "st", MOD(_p4,10)=2, "nd", MOD(_p4,10)=3, "rd", "th")
+			VAR _c5 = MAX(baseball_hits[SB])
+			VAR _p5 = ROUND(DIVIDE(COUNTROWS(FILTER(ALL(baseball_hits), baseball_hits[SB] < _c5)), _n - 1) * 100, 0)
+			VAR _o5 = _p5 & SWITCH(TRUE(), _p5 >= 10 && _p5 <= 20, "th", MOD(_p5,10)=1, "st", MOD(_p5,10)=2, "nd", MOD(_p5,10)=3, "rd", "th")
+			VAR _svg =
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 366 424'><text x='0' y='14' font-family='Oswald, sans-serif' font-weight='700' font-size='13' fill='#0E3386'>PERCENTILE vs FIELD</text><line x1='0' y1='22' x2='366' y2='22' stroke='#EEF2F9' stroke-width='1'/>"
+			    & "<text x='0' y='44' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#12141C'>HITS</text>" & "<text x='366' y='44' font-family='Oswald, sans-serif' font-size='12' fill='#4C5363' text-anchor='end'>" & FORMAT(_c0, "#,0") & " &#8226; " & _o0 & "</text>" & "<rect x='0' y='52' rx='5' width='366' height='12' fill='#EEF2F9'/>" & "<rect x='0' y='52' rx='5' width='" & ROUND(_p0/100*366,0) & "' height='12' fill='" & IF(_p0 >= 90, "#CC3433", "#0E3386") & "'/>"
+			    & "<text x='0' y='102' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#12141C'>HR</text>" & "<text x='366' y='102' font-family='Oswald, sans-serif' font-size='12' fill='#4C5363' text-anchor='end'>" & FORMAT(_c1, "#,0") & " &#8226; " & _o1 & "</text>" & "<rect x='0' y='110' rx='5' width='366' height='12' fill='#EEF2F9'/>" & "<rect x='0' y='110' rx='5' width='" & ROUND(_p1/100*366,0) & "' height='12' fill='" & IF(_p1 >= 90, "#CC3433", "#0E3386") & "'/>"
+			    & "<text x='0' y='160' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#12141C'>RBI</text>" & "<text x='366' y='160' font-family='Oswald, sans-serif' font-size='12' fill='#4C5363' text-anchor='end'>" & FORMAT(_c2, "#,0") & " &#8226; " & _o2 & "</text>" & "<rect x='0' y='168' rx='5' width='366' height='12' fill='#EEF2F9'/>" & "<rect x='0' y='168' rx='5' width='" & ROUND(_p2/100*366,0) & "' height='12' fill='" & IF(_p2 >= 90, "#CC3433", "#0E3386") & "'/>"
+			    & "<text x='0' y='218' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#12141C'>OPS</text>" & "<text x='366' y='218' font-family='Oswald, sans-serif' font-size='12' fill='#4C5363' text-anchor='end'>" & FORMAT(_c3, "#.000") & " &#8226; " & _o3 & "</text>" & "<rect x='0' y='226' rx='5' width='366' height='12' fill='#EEF2F9'/>" & "<rect x='0' y='226' rx='5' width='" & ROUND(_p3/100*366,0) & "' height='12' fill='" & IF(_p3 >= 90, "#CC3433", "#0E3386") & "'/>"
+			    & "<text x='0' y='276' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#12141C'>ISO</text>" & "<text x='366' y='276' font-family='Oswald, sans-serif' font-size='12' fill='#4C5363' text-anchor='end'>" & FORMAT(_c4, "#.000") & " &#8226; " & _o4 & "</text>" & "<rect x='0' y='284' rx='5' width='366' height='12' fill='#EEF2F9'/>" & "<rect x='0' y='284' rx='5' width='" & ROUND(_p4/100*366,0) & "' height='12' fill='" & IF(_p4 >= 90, "#CC3433", "#0E3386") & "'/>"
+			    & "<text x='0' y='334' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='12' fill='#12141C'>SB</text>" & "<text x='366' y='334' font-family='Oswald, sans-serif' font-size='12' fill='#4C5363' text-anchor='end'>" & FORMAT(_c5, "#,0") & " &#8226; " & _o5 & "</text>" & "<rect x='0' y='342' rx='5' width='366' height='12' fill='#EEF2F9'/>" & "<rect x='0' y='342' rx='5' width='" & ROUND(_p5/100*366,0) & "' height='12' fill='" & IF(_p5 >= 90, "#CC3433", "#0E3386") & "'/>"
+			    & "</svg>"
+			VAR _empty = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 366 424'><text x='0' y='14' font-family='Oswald, sans-serif' font-weight='700' font-size='13' fill='#0E3386'>PERCENTILE vs FIELD</text><line x1='0' y1='22' x2='366' y2='22' stroke='#EEF2F9' stroke-width='1'/><g transform='translate(143,150)'><rect x='0' y='8' rx='2' width='40' height='6' fill='#EEF2F9'/><rect x='0' y='20' rx='2' width='26' height='6' fill='#EEF2F9'/><rect x='0' y='32' rx='2' width='33' height='6' fill='#EEF2F9'/></g><text x='183' y='235' font-family='Oswald, sans-serif' font-weight='700' font-size='15' fill='#D6DEEE' text-anchor='middle'>SELECT A PLAYER</text><text x='183' y='256' font-family='Libre Franklin, sans-serif' font-size='11' fill='#9AA1B0' text-anchor='middle'>to see how they rank across six stats</text></svg>"
+			RETURN IF(_has, _svg, _empty)
+		dataCategory: ImageUrl
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 52b41817-10b7-430a-82df-d9d239806192
 
 	partition _Measures = calculated
 		mode: import

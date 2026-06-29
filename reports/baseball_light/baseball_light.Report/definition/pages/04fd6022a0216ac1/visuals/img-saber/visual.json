@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "img-percentile",
+  "name": "img-saber",
   "position": {
-    "x": 886,
+    "x": 270,
     "y": 286,
     "z": 5,
-    "width": 370,
+    "width": 600,
     "height": 420,
     "tabOrder": 0
   },
@@ -37,7 +37,7 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Percentile Panel SVG"
+                  "Property": "Sabermetrics Panel SVG"
                 }
               }
             },
