@@ -1,37 +1,39 @@
 # Baseball API — live MLB Stats API report
 
-A Power BI report built **directly on a live REST API** (the public [MLB Stats API](https://statsapi.mlb.com/api/v1/)), pulled and shaped in Power Query (`Web.Contents` → JSON expansion → typed tables) and refreshable on demand. Where [`baseball_light`](../baseball_light/) works a static historical CSV, this one demonstrates **API integration, JSON parsing, and a live refreshable model**.
+A Power BI report built **directly on a live REST API** (the public [MLB Stats API](https://statsapi.mlb.com/api/v1/)), pulled and shaped in Power Query (`Web.Contents` → JSON expansion → typed tables) and refreshable on demand. Where [`baseball_light`](../baseball_light/) works a static historical CSV, this one demonstrates **API integration, JSON parsing, a parameterized season, and a refreshable star-schema model**.
 
-> Status: **exploration / planning** (scaffold only). Data model and pages to be built next.
+> Status: **built** — open `Baseball API.pbip` in Power BI Desktop and **Refresh** to pull seasons **2020–2025**. No API key required.
 
-## Endpoints explored
+## The model
 
-Base: `https://statsapi.mlb.com/api/v1`
+Four source tables built from the API, two dimensions, a measure table, and two field parameters — a clean star with **Teams** and **Seasons** as the shared dimensions.
 
-| Endpoint | Returns | Use |
-|---|---|---|
-| `/baseballStats` | Catalog of **204 stat definitions** (98 hitting · 109 pitching · 45 fielding · 25 running; 91 counting / 113 rate). Each has `name`, `lookupParam`, `isCounting`, `statGroups`. | The *menu* of available stats — not chart data itself. Could power a "stat glossary" reference visual. |
-| `/standings?leagueId=103,104&season=YYYY&standingsTypes=regularSeason` | 6 division records; per team: `wins`, `losses`, `winningPercentage`, `gamesBack`, `divisionRank`, `leagueRank`, `streak`, `clinchIndicator`, `runDifferential` (via `records`). | **Standings dashboard** — W-L bars, win% by team, GB races, run differential. |
-| `/stats?stats=season&group=hitting&season=YYYY&sportId=1&playerPool=qualified` | Per-player season hitting — **~35 fields**: `avg`, `homeRuns`, `rbi`, `ops`, `obp`, `slg`, `hits`, `doubles`, `triples`, `stolenBases`, `strikeOuts`, `baseOnBalls`, `totalBases`, `babip`, `plateAppearances`, … | **Live hitting leaderboards + sabermetric scatter** (OPS vs HR, power/contact quadrant). |
-| `/stats?stats=season&group=pitching&...` | Per-player pitching — `era`, `whip`, `strikeOuts`, `wins`, `saves`, `inningsPitched`, … | **Pitching leaderboards.** |
-| `/stats/leaders?leaderCategories=homeRuns&season=YYYY&sportId=1` | Single-stat top-N (top key `leagueLeaders`). | Quick top-10 lists. |
-| `/teams?sportId=1&season=YYYY` | Team metadata: `name`, `abbreviation`, `venue`, `division`, `league`. | Dimension/lookup table for joins + branding. |
+| Table | Endpoint | Grain | Notes |
+|---|---|---|---|
+| **Teams** | `/teams?sportId=1&season={SeasonEnd}` | one row per MLB club | dimension: name, abbrev, division, league, venue |
+| **Seasons** | — (`{SeasonStart}…{SeasonEnd}`) | one row per season | dimension driving the season slicer on every page |
+| **Standings** | `/standings?leagueId=103,104&season={yr}` | one row per team-season | W-L, win %, run differential, streak, games back |
+| **Hitting** | `/stats?group=hitting&playerPool=qualified&season={yr}` | one row per hitter-season | ~25 fields incl. AVG/OBP/SLG/OPS/ISO |
+| **Pitching** | `/stats?group=pitching&playerPool=qualified&season={yr}` | one row per pitcher-season | ERA, WHIP, K, K/9, K/BB, saves |
 
-Live sample (2024 qualified hitters): Bobby Witt Jr. — .332 / 32 HR / 109 RBI / .977 OPS / 211 H / 31 SB.
+- **`SeasonStart` / `SeasonEnd`** are Power Query parameters (default `2020` / `2025`). The fact queries loop the API once per season in that range (`List.Numbers` → `Table.Combine`) and stamp a `Season` column; change the bounds and the whole model re-points. Extend `SeasonEnd` to `2026` to fold in the live, in-progress season.
+- Every page carries a **single-select season slicer** (defaults to 2025) so leaderboards, standings, and the explorer always read one clean season; the SVG KPI tiles are season-aware (they rank within the selected season).
+- Rate stats arrive from the API as **strings** (`".332"`, `".977"`) and are converted to decimal in Power Query with invariant culture.
+- `Standings`, `Hitting`, and `Pitching` relate to `Teams` on `TeamId` and to `Seasons` on `Season` (single-direction, dimensions → facts).
+- **41 measures** (counting, rate, dynamic, and SVG) plus **Rank By Hitting** / **Rank By Pitching** field parameters drive the dynamic leaderboards.
 
-## Proposed report (to build)
+## Pages
 
-Reuse the **Ballpark** design system (navy/crimson/gold, Oswald/Libre Franklin) and the SVG-tile/icon language from `baseball_light`.
+1. **Standings** — four SVG KPI tiles (best record, most runs, best run differential, HR leader) over a division standings table and a wins-by-team bar.
+2. **Hitting Leaders** — *rank the field by any stat* (field parameter): a Top-15 bar with a dynamic title, a HR × OPS power-vs-production scatter, and a qualified-hitters table.
+3. **Pitching Leaders** — same pattern for pitchers (Wins / K / Saves / K9 / K-BB / batters faced), a K/9 × ERA scatter, and a qualified-pitchers table. ERA and WHIP are deliberately kept out of the "rank by" list (lower-is-better stats don't rank descending) and shown in the scatter/table instead.
+4. **Explorer** — a full-height navy navbar player picker, an SVG hero with the player's season line, a season-at-a-glance KPI strip, and a detailed season-line table.
 
-1. **Standings** — live division standings (W-L bars, win%, GB, run differential), AL/NL split, clinch markers. The "live" hook.
-2. **Hitting leaders** — dynamic leaderboard (field-parameter "rank by any stat"), OPS-vs-HR scatter, power/contact quadrant — but on *current* players.
-3. **Pitching leaders** — ERA / WHIP / strikeout leaders.
-4. **Player / team explorer** — drill-through profile reusing the SVG hero + percentile panels.
+Styled with the shared [Ballpark](../../design_systems/ballpark/) design system (navy `#0E3386` / crimson `#CC3433` / gold `#C8A24B`, Oswald + Libre Franklin) and the same SVG-tile / image-visual language as `baseball_light`.
 
 ## Power Query notes
 
-- Pull each endpoint with `Web.Contents("https://statsapi.mlb.com/api/v1/…")`, then `Json.Document` → navigate to the records/splits list → `Table.FromRecords` / expand → set types.
-- Parameterize **season** (and optionally league/group) as a Power Query parameter so the report re-points without edits.
-- The `/stats` splits live at `stats[0].splits[].stat` (the measures) + `splits[].player` / `splits[].team` (the keys).
-- Standings teams live at `records[].teamRecords[]`, with the division at `records[].division.id`.
-- Rate stats arrive as **strings** (".332", ".977") — convert to decimal in PQ.
+- Each table: `Json.Document(Web.Contents("…/{endpoint}", [Query=[…, season=Season]]))` → navigate to the records/splits list → `Table.FromList` → `ExpandRecordColumn` → type.
+- `/stats` splits live at `stats[0].splits[]` — `[].stat` holds the measures, `[].player` / `[].team` the keys.
+- Standings teams live at `records[].teamRecords[]`, with the division/league ids on the parent `records[]` record.
+- The model validates against the TOM `TmdlSerializer` (the authoritative Desktop-engine check): 8 tables, 87 columns, 41 measures.

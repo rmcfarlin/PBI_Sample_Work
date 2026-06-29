@@ -1,0 +1,245 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "season-table",
+  "position": {
+    "x": 274,
+    "y": 396,
+    "z": 0,
+    "height": 300,
+    "width": 982,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "TeamName"
+                }
+              },
+              "queryRef": "Hitting.TeamName",
+              "nativeQueryRef": "TeamName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "Pos"
+                }
+              },
+              "queryRef": "Hitting.Pos",
+              "nativeQueryRef": "Pos"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "Games"
+                }
+              },
+              "queryRef": "Hitting.Games",
+              "nativeQueryRef": "Games"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "AB"
+                }
+              },
+              "queryRef": "Hitting.AB",
+              "nativeQueryRef": "AB"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "Hits"
+                }
+              },
+              "queryRef": "Hitting.Hits",
+              "nativeQueryRef": "Hits"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "HR"
+                }
+              },
+              "queryRef": "Hitting.HR",
+              "nativeQueryRef": "HR"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "RBI"
+                }
+              },
+              "queryRef": "Hitting.RBI",
+              "nativeQueryRef": "RBI"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "BB"
+                }
+              },
+              "queryRef": "Hitting.BB",
+              "nativeQueryRef": "BB"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "SO"
+                }
+              },
+              "queryRef": "Hitting.SO",
+              "nativeQueryRef": "SO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "SB"
+                }
+              },
+              "queryRef": "Hitting.SB",
+              "nativeQueryRef": "SB"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "AVG"
+                }
+              },
+              "queryRef": "Hitting.AVG",
+              "nativeQueryRef": "AVG"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hitting"
+                    }
+                  },
+                  "Property": "OPS"
+                }
+              },
+              "queryRef": "Hitting.OPS",
+              "nativeQueryRef": "OPS"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Hitting"
+                  }
+                },
+                "Property": "Hits"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'SEASON LINE'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

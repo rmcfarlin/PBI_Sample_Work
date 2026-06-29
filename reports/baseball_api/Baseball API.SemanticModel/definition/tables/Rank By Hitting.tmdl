@@ -1,0 +1,57 @@
+table 'Rank By Hitting'
+	lineageTag: 89f1c3f5-0daf-4173-9df2-b50f696de74f
+
+	column 'Rank By Hitting'
+		lineageTag: ab425a14-0cf9-4816-9e9b-9c6afd2283f1
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Rank By Hitting Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Rank By Hitting Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank By Hitting Fields'
+		isHidden
+		lineageTag: f31ae1cd-b89a-47e7-9d65-5dfac178d1c3
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Rank By Hitting Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank By Hitting Order'
+		isHidden
+		formatString: 0
+		lineageTag: 1093728b-953f-4647-a6bf-4a10cdefed54
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Rank By Hitting' = calculated
+		mode: import
+		source =
+				{
+				    ("Home Runs", NAMEOF([HR]), 0),
+				    ("Hits", NAMEOF([Hits]), 1),
+				    ("RBI", NAMEOF([RBI]), 2),
+				    ("Runs", NAMEOF([Runs]), 3),
+				    ("Stolen Bases", NAMEOF([SB]), 4),
+				    ("Walks", NAMEOF([Walks]), 5),
+				    ("Batting Avg", NAMEOF([AVG]), 6),
+				    ("On-Base %", NAMEOF([OBP]), 7),
+				    ("Slugging %", NAMEOF([SLG]), 8),
+				    ("OPS", NAMEOF([OPS]), 9),
+				    ("Isolated Power", NAMEOF([ISO]), 10),
+				    ("Total Bases", NAMEOF([Total Bases]), 11)
+				}
+
+	annotation PBI_Id = 3d4040e3c585488490aa5f98b7346d97

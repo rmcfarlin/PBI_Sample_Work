@@ -1,0 +1,105 @@
+table Teams
+	lineageTag: 361a5784-dbdc-44d9-a5a7-8bc6efa41269
+
+	column TeamId
+		dataType: int64
+		formatString: 0
+		lineageTag: c2678714-ae7e-4040-a29f-d7329bd2b4f0
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamName
+		dataType: string
+		lineageTag: d173b04e-f49b-4531-a107-33fd56058109
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Abbrev
+		dataType: string
+		lineageTag: 2db93647-176a-41e6-967b-abf7326f8ad4
+		summarizeBy: none
+		sourceColumn: abbreviation
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortName
+		dataType: string
+		lineageTag: 300e4c1d-c5ac-4fdf-b195-a16cc31f1074
+		summarizeBy: none
+		sourceColumn: teamName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: e70dd181-0f94-4298-8600-4d40f875312b
+		summarizeBy: none
+		sourceColumn: locationName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Division
+		dataType: string
+		lineageTag: ddfd9fec-78b8-458e-af33-ec97a127bfcf
+		summarizeBy: none
+		sourceColumn: DivisionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 666b4588-5c50-41d0-b9f7-d05aa68af051
+		summarizeBy: none
+		sourceColumn: DivisionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column League
+		dataType: string
+		lineageTag: 0eba34be-731e-47e1-a39b-1522ef2be007
+		summarizeBy: none
+		sourceColumn: LeagueName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeagueId
+		dataType: int64
+		formatString: 0
+		lineageTag: e1e8761f-60db-4359-87d8-488349af389f
+		summarizeBy: none
+		sourceColumn: LeagueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Venue
+		dataType: string
+		lineageTag: 3eb3d933-790c-4b33-82d8-e957e37f59e7
+		summarizeBy: none
+		sourceColumn: VenueName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Teams = m
+		mode: import
+		source =
+				let
+				  Source = Json.Document(Web.Contents("https://statsapi.mlb.com/api/v1/teams", [Query=[sportId="1", season=Text.From(SeasonEnd)]])),
+				  teams = Source[teams],
+				  t = Table.FromList(teams, Splitter.SplitByNothing(), {"T"}),
+				  expand = Table.ExpandRecordColumn(t, "T", {"id","name","abbreviation","teamName","locationName","division","league","venue"}, {"id","name","abbreviation","teamName","locationName","division","league","venue"}),
+				  DivisionName = Table.AddColumn(expand, "DivisionName", each try [division][name] otherwise null, type text),
+				  DivisionId = Table.AddColumn(DivisionName, "DivisionId", each try [division][id] otherwise null, Int64.Type),
+				  LeagueName = Table.AddColumn(DivisionId, "LeagueName", each try [league][name] otherwise null, type text),
+				  LeagueId = Table.AddColumn(LeagueName, "LeagueId", each try [league][id] otherwise null, Int64.Type),
+				  VenueName = Table.AddColumn(LeagueId, "VenueName", each try [venue][name] otherwise null, type text),
+				  drop = Table.RemoveColumns(VenueName, {"division","league","venue"}),
+				  typed = Table.TransformColumnTypes(drop, {{"id",Int64.Type},{"name",type text},{"abbreviation",type text},{"teamName",type text},{"locationName",type text},{"DivisionName",type text},{"DivisionId",Int64.Type},{"LeagueName",type text},{"LeagueId",Int64.Type},{"VenueName",type text}})
+				in
+				  typed
+
+	annotation PBI_ResultType = Table

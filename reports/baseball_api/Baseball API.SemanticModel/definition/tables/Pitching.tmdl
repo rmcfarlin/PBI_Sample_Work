@@ -1,0 +1,247 @@
+table Pitching
+	lineageTag: 1d3f8f3e-fe47-4180-a8c2-e3f731399160
+
+	column Season
+		dataType: int64
+		formatString: 0
+		lineageTag: dbd092e7-bd77-4485-b971-5a4831c20bba
+		summarizeBy: none
+		sourceColumn: Season
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlayerId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a87bd14-7a28-49e6-87cd-81cf71c13a16
+		summarizeBy: none
+		sourceColumn: PlayerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlayerName
+		dataType: string
+		lineageTag: 22052219-92e6-4de2-9311-d9e30b7c8180
+		summarizeBy: none
+		sourceColumn: PlayerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamId
+		dataType: int64
+		formatString: 0
+		lineageTag: d596184d-f2f2-4500-88b5-aac58201eef3
+		summarizeBy: none
+		sourceColumn: TeamId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamName
+		dataType: string
+		lineageTag: ee532da6-cd73-4e40-8572-34e1547e2b2c
+		summarizeBy: none
+		sourceColumn: TeamName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: c5ff5697-9074-42fa-af28-7ad18503b481
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Games
+		dataType: int64
+		formatString: 0
+		lineageTag: 72e57a28-f5a4-4381-9629-66751bfc7578
+		summarizeBy: sum
+		sourceColumn: gamesPlayed
+
+		annotation SummarizationSetBy = Automatic
+
+	column GamesStarted
+		dataType: int64
+		formatString: 0
+		lineageTag: c3edcb5a-17cd-4982-bd12-8a073d215825
+		summarizeBy: sum
+		sourceColumn: gamesStarted
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wins
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e8b4d83-751b-47a9-ad9f-36097acb3bcf
+		summarizeBy: sum
+		sourceColumn: wins
+
+		annotation SummarizationSetBy = Automatic
+
+	column Losses
+		dataType: int64
+		formatString: 0
+		lineageTag: e7d927bd-287c-4245-a1e9-c622b9a255dd
+		summarizeBy: sum
+		sourceColumn: losses
+
+		annotation SummarizationSetBy = Automatic
+
+	column Saves
+		dataType: int64
+		formatString: 0
+		lineageTag: cda807a5-4ecb-4891-bb7c-b0ce249e3269
+		summarizeBy: sum
+		sourceColumn: saves
+
+		annotation SummarizationSetBy = Automatic
+
+	column Holds
+		dataType: int64
+		formatString: 0
+		lineageTag: da2d0f28-9f1c-4175-8258-f72e739e71ce
+		summarizeBy: sum
+		sourceColumn: holds
+
+		annotation SummarizationSetBy = Automatic
+
+	column ERA
+		dataType: double
+		lineageTag: 98ca789c-20c9-47dd-802b-87d294217e07
+		summarizeBy: none
+		sourceColumn: era
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WHIP
+		dataType: double
+		lineageTag: f45bcaa9-b7ec-4903-9cfd-242cb4034fc9
+		summarizeBy: none
+		sourceColumn: whip
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IP
+		dataType: string
+		lineageTag: 5fa8236e-517a-43be-a860-1a9e26cdda7d
+		summarizeBy: none
+		sourceColumn: inningsPitched
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO
+		dataType: int64
+		formatString: 0
+		lineageTag: df6ec84f-629f-4f4d-8632-25380d61503d
+		summarizeBy: sum
+		sourceColumn: strikeOuts
+
+		annotation SummarizationSetBy = Automatic
+
+	column BB
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fcf582e-090a-4bbb-82b0-423d4478596d
+		summarizeBy: sum
+		sourceColumn: baseOnBalls
+
+		annotation SummarizationSetBy = Automatic
+
+	column HitsAllowed
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d80a085-95cf-48e7-bdff-b56e4ac4d735
+		summarizeBy: sum
+		sourceColumn: hits
+
+		annotation SummarizationSetBy = Automatic
+
+	column HRAllowed
+		dataType: int64
+		formatString: 0
+		lineageTag: e44c25e7-d5a9-41e3-b731-848b9a9b399b
+		summarizeBy: sum
+		sourceColumn: homeRuns
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompleteGames
+		dataType: int64
+		formatString: 0
+		lineageTag: bb899ce6-9535-4f23-9ffd-34b75d197955
+		summarizeBy: sum
+		sourceColumn: completeGames
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shutouts
+		dataType: int64
+		formatString: 0
+		lineageTag: d069022d-d723-42ac-b12b-1c93407b92b4
+		summarizeBy: sum
+		sourceColumn: shutouts
+
+		annotation SummarizationSetBy = Automatic
+
+	column BattersFaced
+		dataType: int64
+		formatString: 0
+		lineageTag: b1ad5b09-d819-4d7b-b215-4e5964a26a3e
+		summarizeBy: sum
+		sourceColumn: battersFaced
+
+		annotation SummarizationSetBy = Automatic
+
+	column K_BB
+		dataType: double
+		lineageTag: 8fcaf99d-b066-4177-97e3-ca1bfe1531ae
+		summarizeBy: none
+		sourceColumn: strikeoutWalkRatio
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column K9
+		dataType: double
+		lineageTag: 2137d9ed-e8dd-4a58-b12f-35b869518c96
+		summarizeBy: none
+		sourceColumn: strikeoutsPer9Inn
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BB9
+		dataType: double
+		lineageTag: 815a68fe-f4e1-4fcc-89a1-1a135c51872c
+		summarizeBy: none
+		sourceColumn: walksPer9Inn
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Pitching = m
+		mode: import
+		source =
+				let
+				  Fetch = (yr as number) as table =>
+				    let
+				      Source = Json.Document(Web.Contents("https://statsapi.mlb.com/api/v1/stats", [Query=[stats="season", group="pitching", season=Text.From(yr), sportId="1", playerPool="qualified", limit="2000"]])),
+				      splits = Source[stats]{0}[splits],
+				      t = Table.FromList(splits, Splitter.SplitByNothing(), {"Split"}),
+				      expand = Table.ExpandRecordColumn(t, "Split", {"stat","player","team","position","rank"}, {"stat","player","team","position","rank"}),
+				      PlayerId = Table.AddColumn(expand, "PlayerId", each [player][id], Int64.Type),
+				      PlayerName = Table.AddColumn(PlayerId, "PlayerName", each [player][fullName], type text),
+				      TeamId = Table.AddColumn(PlayerName, "TeamId", each try [team][id] otherwise null, Int64.Type),
+				      TeamName = Table.AddColumn(TeamId, "TeamName", each try [team][name] otherwise null, type text),
+				      expandStat = Table.ExpandRecordColumn(TeamName, "stat", {"age","gamesPlayed","gamesStarted","wins","losses","saves","holds","era","whip","inningsPitched","strikeOuts","baseOnBalls","hits","homeRuns","completeGames","shutouts","battersFaced","strikeoutWalkRatio","strikeoutsPer9Inn","walksPer9Inn"}, {"age","gamesPlayed","gamesStarted","wins","losses","saves","holds","era","whip","inningsPitched","strikeOuts","baseOnBalls","hits","homeRuns","completeGames","shutouts","battersFaced","strikeoutWalkRatio","strikeoutsPer9Inn","walksPer9Inn"}),
+				      drop = Table.RemoveColumns(expandStat, {"player","team","position","rank"}),
+				      typed = Table.TransformColumnTypes(drop, {{"PlayerId",Int64.Type},{"PlayerName",type text},{"TeamId",Int64.Type},{"TeamName",type text},{"age",Int64.Type},{"gamesPlayed",Int64.Type},{"gamesStarted",Int64.Type},{"wins",Int64.Type},{"losses",Int64.Type},{"saves",Int64.Type},{"holds",Int64.Type},{"era",type number},{"whip",type number},{"inningsPitched",type text},{"strikeOuts",Int64.Type},{"baseOnBalls",Int64.Type},{"hits",Int64.Type},{"homeRuns",Int64.Type},{"completeGames",Int64.Type},{"shutouts",Int64.Type},{"battersFaced",Int64.Type},{"strikeoutWalkRatio",type number},{"strikeoutsPer9Inn",type number},{"walksPer9Inn",type number}}, "en-US"),
+				      withSeason = Table.AddColumn(typed, "Season", each yr, Int64.Type)
+				    in
+				      withSeason,
+				  SeasonList = List.Numbers(Number.From(SeasonStart), Number.From(SeasonEnd) - Number.From(SeasonStart) + 1),
+				  All = List.Transform(SeasonList, each Fetch(_)),
+				  Combined = Table.Combine(All)
+				in
+				  Combined
+
+	annotation PBI_ResultType = Table

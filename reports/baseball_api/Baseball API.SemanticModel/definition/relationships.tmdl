@@ -1,0 +1,23 @@
+relationship 28f15920-a7f9-48b6-80c5-53f9260e9e20
+	fromColumn: Standings.TeamId
+	toColumn: Teams.TeamId
+
+relationship 9efc6ef3-8792-42a4-bd09-2252c82fa5ac
+	fromColumn: Hitting.TeamId
+	toColumn: Teams.TeamId
+
+relationship fa1bc4b6-75c6-44aa-9aa1-857e6b44e5f8
+	fromColumn: Pitching.TeamId
+	toColumn: Teams.TeamId
+
+relationship 993e2837-615a-4359-8bc9-bf5a5dd747fb
+	fromColumn: Standings.Season
+	toColumn: Seasons.Season
+
+relationship 190794a0-34b6-4dec-92c1-1a37700a8178
+	fromColumn: Hitting.Season
+	toColumn: Seasons.Season
+
+relationship 7974d12a-33a1-45a2-9353-2de54a54becc
+	fromColumn: Pitching.Season
+	toColumn: Seasons.Season

@@ -1,0 +1,280 @@
+table _Measures
+	lineageTag: 667896a2-ddbd-48c1-ab42-ccc9a3a929fc
+
+	measure Wins = SUM(Standings[Wins])
+		formatString: #,0
+		displayFolder: 01 Standings
+		lineageTag: 5eceac29-db54-420d-90fd-c09b71e65798
+
+	measure Losses = SUM(Standings[Losses])
+		formatString: #,0
+		displayFolder: 01 Standings
+		lineageTag: 2f9cf4f8-c678-4b5a-852e-afaa5c2120d7
+
+	measure 'Win %' = DIVIDE([Wins], [Wins] + [Losses])
+		formatString: 0.000
+		displayFolder: 01 Standings
+		lineageTag: 8b8f4e93-6dfe-4011-8820-0abef20b926d
+
+	measure 'Runs Scored' = SUM(Standings[RunsScored])
+		formatString: #,0
+		displayFolder: 01 Standings
+		lineageTag: 8249cb2b-4537-4307-811f-5cd05a09f79e
+
+	measure 'Runs Allowed' = SUM(Standings[RunsAllowed])
+		formatString: #,0
+		displayFolder: 01 Standings
+		lineageTag: 5c21f0ff-8db1-416a-ba1e-80c520ee1bf9
+
+	measure 'Run Diff' = SUM(Standings[RunDiff])
+		formatString: +#,0;-#,0;0
+		displayFolder: 01 Standings
+		lineageTag: 1bf412d4-030d-4437-97db-63b461553f14
+
+	measure 'Teams Tracked' = DISTINCTCOUNT(Standings[TeamId])
+		formatString: 0
+		displayFolder: 01 Standings
+		lineageTag: b525381c-8c3b-4e2c-be18-a754037d3fc8
+
+	measure HR = SUM(Hitting[HR])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: eaf56075-2f25-4307-874c-670d69ec431e
+
+	measure Hits = SUM(Hitting[Hits])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: eb76d702-bb09-46d7-9326-4aa861c09719
+
+	measure RBI = SUM(Hitting[RBI])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: d0c48d4d-c240-4fbd-9098-5dc5c8a9b587
+
+	measure Runs = SUM(Hitting[Runs])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: ec022af1-b55c-4fcf-abb3-692fad0fc0e9
+
+	measure SB = SUM(Hitting[SB])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: 39ba28a8-245d-42e2-827d-17e1fe5ebc26
+
+	measure Walks = SUM(Hitting[BB])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: c4084d29-08d8-4333-a420-fb32d26ef0da
+
+	measure 'Strikeouts (H)' = SUM(Hitting[SO])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: d74e79c0-a528-48fa-9018-58b557dd7ab4
+
+	measure 'Total Bases' = SUM(Hitting[TotalBases])
+		formatString: #,0
+		displayFolder: 02 Hitting
+		lineageTag: 5d5bb310-caa1-42e6-8bde-3a6544dc4bd8
+
+	measure AVG = AVERAGE(Hitting[AVG])
+		formatString: 0.000
+		displayFolder: 02 Hitting
+		lineageTag: ec657206-6031-4a16-ab03-33fd5215dc1e
+
+	measure OBP = AVERAGE(Hitting[OBP])
+		formatString: 0.000
+		displayFolder: 02 Hitting
+		lineageTag: 3b84c895-33fc-4d4d-86d2-e6ae7559c2bd
+
+	measure SLG = AVERAGE(Hitting[SLG])
+		formatString: 0.000
+		displayFolder: 02 Hitting
+		lineageTag: 33fab4e2-e029-42d7-befc-8e47465a1245
+
+	measure OPS = AVERAGE(Hitting[OPS])
+		formatString: 0.000
+		displayFolder: 02 Hitting
+		lineageTag: 663bd890-a35d-42bc-9552-58449b21df0a
+
+	measure ISO = AVERAGE(Hitting[ISO])
+		formatString: 0.000
+		displayFolder: 02 Hitting
+		lineageTag: e71889b8-77e0-4ab2-94dc-f8a1a984a56e
+
+	measure BABIP = AVERAGE(Hitting[BABIP])
+		formatString: 0.000
+		displayFolder: 02 Hitting
+		lineageTag: d2163a92-3c76-47d0-a03c-82ef988fc404
+
+	measure 'Qualified Hitters' = DISTINCTCOUNT(Hitting[PlayerId])
+		formatString: 0
+		displayFolder: 02 Hitting
+		lineageTag: 66cc5406-0712-46cd-82b1-f34672006dac
+
+	measure 'Pitcher Wins' = SUM(Pitching[Wins])
+		formatString: #,0
+		displayFolder: 03 Pitching
+		lineageTag: 085c9cfd-1b67-48b7-bc78-03e995e5ff68
+
+	measure 'Pitcher Losses' = SUM(Pitching[Losses])
+		formatString: #,0
+		displayFolder: 03 Pitching
+		lineageTag: f12609fe-8332-4377-8bf8-c9cd169a58ea
+
+	measure ERA = AVERAGE(Pitching[ERA])
+		formatString: 0.00
+		displayFolder: 03 Pitching
+		lineageTag: 6a6e32ee-4b57-4041-b67e-ed6c2cc10ac6
+
+	measure WHIP = AVERAGE(Pitching[WHIP])
+		formatString: 0.00
+		displayFolder: 03 Pitching
+		lineageTag: a5468187-bd92-4b79-831e-f5a9c0f7d1db
+
+	measure Strikeouts = SUM(Pitching[SO])
+		formatString: #,0
+		displayFolder: 03 Pitching
+		lineageTag: 0ef92c7f-f482-41b8-aa4b-127a35a3e626
+
+	measure Saves = SUM(Pitching[Saves])
+		formatString: #,0
+		displayFolder: 03 Pitching
+		lineageTag: ea1ad94c-d0ca-44cc-89a7-ace88a82f83a
+
+	measure 'K per 9' = AVERAGE(Pitching[K9])
+		formatString: 0.00
+		displayFolder: 03 Pitching
+		lineageTag: dd54a07e-80f7-42bc-a94d-4d0b2087e012
+
+	measure 'K per BB' = AVERAGE(Pitching[K_BB])
+		formatString: 0.00
+		displayFolder: 03 Pitching
+		lineageTag: d670da91-1f6b-463f-b6c7-43a9119a2805
+
+	measure 'Batters Faced' = SUM(Pitching[BattersFaced])
+		formatString: #,0
+		displayFolder: 03 Pitching
+		lineageTag: a9ec335c-c56a-4f17-9638-09572102156c
+
+	measure 'Qualified Pitchers' = DISTINCTCOUNT(Pitching[PlayerId])
+		formatString: 0
+		displayFolder: 03 Pitching
+		lineageTag: df3bced3-c5e0-453d-b1bd-0643fe796134
+
+	measure 'Selected Hitting Value' = 1. * SWITCH(SELECTEDVALUE('Rank By Hitting'[Rank By Hitting Order]), 0, [HR], 1, [Hits], 2, [RBI], 3, [Runs], 4, [SB], 5, [Walks], 6, [AVG], 7, [OBP], 8, [SLG], 9, [OPS], 10, [ISO], 11, [Total Bases], [HR])
+		displayFolder: 04 Dynamic
+		lineageTag: a0bbd464-85d5-49a1-8388-b7aa440f9c97
+
+	measure 'Selected Pitching Value' = 1. * SWITCH(SELECTEDVALUE('Rank By Pitching'[Rank By Pitching Order]), 0, [Pitcher Wins], 1, [Strikeouts], 2, [Saves], 3, [K per 9], 4, [K per BB], 5, [Batters Faced], [Strikeouts])
+		displayFolder: 04 Dynamic
+		lineageTag: cc035ac6-6a20-4b32-b4bf-d2fc1d8d6983
+
+	measure 'Hitting Leader Title' = "TOP 15 HITTERS BY " & UPPER(SWITCH(SELECTEDVALUE('Rank By Hitting'[Rank By Hitting Order]), 0, "Home Runs", 1, "Hits", 2, "RBI", 3, "Runs", 4, "Stolen Bases", 5, "Walks", 6, "Batting Average", 7, "On-Base Pct", 8, "Slugging Pct", 9, "OPS", 10, "Isolated Power", 11, "Total Bases", "Home Runs"))
+		displayFolder: 04 Dynamic
+		lineageTag: fc4f1746-f165-4279-84fc-04647f1be9f5
+
+	measure 'Pitching Leader Title' = "TOP 15 PITCHERS BY " & UPPER(SWITCH(SELECTEDVALUE('Rank By Pitching'[Rank By Pitching Order]), 0, "Wins", 1, "Strikeouts", 2, "Saves", 3, "K per 9", 4, "K per BB", 5, "Batters Faced", "Strikeouts"))
+		displayFolder: 04 Dynamic
+		lineageTag: c08f8975-21e9-4d37-8264-dbda9890ae4a
+
+	measure 'Tile Best Record' =
+			VAR _tbl = ADDCOLUMNS(VALUES(Standings[TeamName]), "w", [Wins], "l", [Losses], "p", [Win %])
+			VAR _top = TOPN(1, _tbl, [p], DESC, [w], DESC)
+			VAR _name = MAXX(_top, Standings[TeamName])
+			VAR _w = MAXX(_top, [w])
+			VAR _l = MAXX(_top, [l])
+			VAR _p = MAXX(_top, [p])
+			VAR _svg =
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 120'>"
+			    & "<rect x='0' y='0' width='280' height='120' rx='10' fill='#FFFFFF' stroke='#DCDFE6'/>"
+			    & "<rect x='0' y='0' width='6' height='120' rx='3' fill='#0E3386'/>"
+			    & "<text x='22' y='30' font-family='Oswald, sans-serif' font-weight='700' font-size='12' fill='#9AA1B0' letter-spacing='1.5'>BEST RECORD</text>"
+			    & "<text x='22' y='66' font-family='Oswald, sans-serif' font-weight='700' font-size='24' fill='#0E3386'>" & UPPER(_name) & "</text>"
+			    & "<text x='22' y='100' font-family='Libre Franklin, sans-serif' font-size='14' fill='#4C5363'>" & FORMAT(_w, "0") & "-" & FORMAT(_l, "0") & "  &#8226;  " & FORMAT(_p, ".000") & "</text>"
+			    & "</svg>"
+			RETURN _svg
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 4f27f86c-b7cf-4d64-8bcf-bb78be1fa33c
+		dataCategory: ImageUrl
+
+	measure 'Tile HR Leader' =
+			VAR _tbl = ADDCOLUMNS(VALUES(Hitting[PlayerName]), "h", [HR])
+			VAR _top = TOPN(1, _tbl, [h], DESC)
+			VAR _name = MAXX(_top, Hitting[PlayerName])
+			VAR _h = MAXX(_top, [h])
+			VAR _svg =
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 120'>"
+			    & "<rect x='0' y='0' width='280' height='120' rx='10' fill='#FFFFFF' stroke='#DCDFE6'/>"
+			    & "<rect x='0' y='0' width='6' height='120' rx='3' fill='#3C7A3F'/>"
+			    & "<text x='22' y='30' font-family='Oswald, sans-serif' font-weight='700' font-size='12' fill='#9AA1B0' letter-spacing='1.5'>HOME RUN LEADER</text>"
+			    & "<text x='22' y='66' font-family='Oswald, sans-serif' font-weight='700' font-size='24' fill='#0E3386'>" & UPPER(_name) & "</text>"
+			    & "<text x='22' y='100' font-family='Libre Franklin, sans-serif' font-size='14' fill='#4C5363'>" & FORMAT(_h, "#,0") & " home runs</text>"
+			    & "</svg>"
+			RETURN _svg
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 442c7292-d79d-4c03-9618-bbb4539aae19
+		dataCategory: ImageUrl
+
+	measure 'Tile Most Runs' =
+			VAR _tbl = ADDCOLUMNS(VALUES(Standings[TeamName]), "r", [Runs Scored])
+			VAR _top = TOPN(1, _tbl, [r], DESC)
+			VAR _name = MAXX(_top, Standings[TeamName])
+			VAR _r = MAXX(_top, [r])
+			VAR _svg =
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 120'>"
+			    & "<rect x='0' y='0' width='280' height='120' rx='10' fill='#FFFFFF' stroke='#DCDFE6'/>"
+			    & "<rect x='0' y='0' width='6' height='120' rx='3' fill='#CC3433'/>"
+			    & "<text x='22' y='30' font-family='Oswald, sans-serif' font-weight='700' font-size='12' fill='#9AA1B0' letter-spacing='1.5'>MOST RUNS SCORED</text>"
+			    & "<text x='22' y='66' font-family='Oswald, sans-serif' font-weight='700' font-size='24' fill='#CC3433'>" & UPPER(_name) & "</text>"
+			    & "<text x='22' y='100' font-family='Libre Franklin, sans-serif' font-size='14' fill='#4C5363'>" & FORMAT(_r, "#,0") & " runs across the season</text>"
+			    & "</svg>"
+			RETURN _svg
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 9bb22d94-08a1-430b-9048-2f1f42b3e821
+		dataCategory: ImageUrl
+
+	measure 'Tile Best Run Diff' =
+			VAR _tbl = ADDCOLUMNS(VALUES(Standings[TeamName]), "d", [Run Diff])
+			VAR _top = TOPN(1, _tbl, [d], DESC)
+			VAR _name = MAXX(_top, Standings[TeamName])
+			VAR _d = MAXX(_top, [d])
+			VAR _svg =
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 120'>"
+			    & "<rect x='0' y='0' width='280' height='120' rx='10' fill='#FFFFFF' stroke='#DCDFE6'/>"
+			    & "<rect x='0' y='0' width='6' height='120' rx='3' fill='#C8A24B'/>"
+			    & "<text x='22' y='30' font-family='Oswald, sans-serif' font-weight='700' font-size='12' fill='#9AA1B0' letter-spacing='1.5'>BEST RUN DIFFERENTIAL</text>"
+			    & "<text x='22' y='66' font-family='Oswald, sans-serif' font-weight='700' font-size='24' fill='#0E3386'>" & UPPER(_name) & "</text>"
+			    & "<text x='22' y='100' font-family='Libre Franklin, sans-serif' font-size='14' fill='#3C7A3F'>" & FORMAT(_d, "+#,0;-#,0") & " run differential</text>"
+			    & "</svg>"
+			RETURN _svg
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: af7bdf68-1d12-48b6-b249-8eca64a61bec
+		dataCategory: ImageUrl
+
+	measure 'Player Hero SVG' =
+			VAR _has = HASONEVALUE(Hitting[PlayerName])
+			VAR _p = SELECTEDVALUE(Hitting[PlayerName])
+			VAR _team = SELECTEDVALUE(Hitting[TeamName])
+			VAR _pos = SELECTEDVALUE(Hitting[Pos])
+			VAR _narr = FORMAT([AVG], "#.000") & " AVG  &#8226;  " & FORMAT([HR], "#,0") & " HR  &#8226;  " & FORMAT([RBI], "#,0") & " RBI  &#8226;  " & FORMAT([OPS], "#.000") & " OPS  &#8226;  " & FORMAT([SB], "#,0") & " SB"
+			VAR _svg =
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 980 86'>"
+			    & "<text x='0' y='34' font-family='Oswald, sans-serif' font-weight='700' font-size='32' fill='#0E3386'>" & UPPER(_p) & "</text>"
+			    & "<text x='0' y='62' font-family='Libre Franklin, sans-serif' font-weight='600' font-size='14' fill='#CC3433'>" & UPPER(_team) & "  &#8226;  " & _pos & "</text>"
+			    & "<text x='980' y='40' font-family='Libre Franklin, sans-serif' font-size='13' fill='#4C5363' text-anchor='end'>" & _narr & "</text>"
+			    & "</svg>"
+			VAR _empty = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 980 86'><path d='M40 43 L20 43 M28 35 L18 43 L28 51' fill='none' stroke='#CC3433' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/><text x='60' y='38' font-family='Oswald, sans-serif' font-weight='700' font-size='26' fill='#D6DEEE'>SELECT A PLAYER</text><text x='60' y='62' font-family='Libre Franklin, sans-serif' font-size='13' fill='#9AA1B0'>Choose a hitter on the left to load their season line.</text></svg>"
+			RETURN IF(_has, _svg, _empty)
+		displayFolder: 10 Visuals (SVG)
+		lineageTag: 75671669-ed18-437b-8591-17a0733ea923
+		dataCategory: ImageUrl
+
+	column Value
+		isHidden
+		lineageTag: ccb1f4bd-216a-400f-a245-99f5ad13ec4d
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = {1}

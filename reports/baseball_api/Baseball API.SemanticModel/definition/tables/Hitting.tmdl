@@ -1,0 +1,266 @@
+table Hitting
+	lineageTag: beb6ad7d-ff9c-4107-9f87-ff33fe9491f6
+
+	column Season
+		dataType: int64
+		formatString: 0
+		lineageTag: 3725cd63-c7fd-4d38-8a7f-d7c0b2b480d7
+		summarizeBy: none
+		sourceColumn: Season
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlayerId
+		dataType: int64
+		formatString: 0
+		lineageTag: b7abb1d9-2d26-4255-b056-b2a20eb36ece
+		summarizeBy: none
+		sourceColumn: PlayerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column PlayerName
+		dataType: string
+		lineageTag: 19e7f2d4-9c5c-4202-a10a-a51f48c75a54
+		summarizeBy: none
+		sourceColumn: PlayerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamId
+		dataType: int64
+		formatString: 0
+		lineageTag: 27d8bdf1-5277-45f1-9225-da7749e7cc09
+		summarizeBy: none
+		sourceColumn: TeamId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamName
+		dataType: string
+		lineageTag: d12c2907-a938-44e8-9614-abcda6feb16c
+		summarizeBy: none
+		sourceColumn: TeamName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Pos
+		dataType: string
+		lineageTag: b23088f1-bb55-4548-9d51-b34032fd0bda
+		summarizeBy: none
+		sourceColumn: Pos
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c6e6422-5918-4377-8fc8-5ff0c70ddb44
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Games
+		dataType: int64
+		formatString: 0
+		lineageTag: a2e9c1e8-aa8b-43cb-ad65-0ac6a90dfe62
+		summarizeBy: sum
+		sourceColumn: gamesPlayed
+
+		annotation SummarizationSetBy = Automatic
+
+	column PA
+		dataType: int64
+		formatString: 0
+		lineageTag: dc9e095e-2b0e-41f7-bd00-154628cd7207
+		summarizeBy: sum
+		sourceColumn: plateAppearances
+
+		annotation SummarizationSetBy = Automatic
+
+	column AB
+		dataType: int64
+		formatString: 0
+		lineageTag: 192b5a05-ab02-4e56-832e-e754e67a0c71
+		summarizeBy: sum
+		sourceColumn: atBats
+
+		annotation SummarizationSetBy = Automatic
+
+	column Runs
+		dataType: int64
+		formatString: 0
+		lineageTag: 32755f59-a847-4010-9b49-8c74432c4b86
+		summarizeBy: sum
+		sourceColumn: runs
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hits
+		dataType: int64
+		formatString: 0
+		lineageTag: 80c11b64-7113-453e-b825-0563e6ab8ae4
+		summarizeBy: sum
+		sourceColumn: hits
+
+		annotation SummarizationSetBy = Automatic
+
+	column Doubles
+		dataType: int64
+		formatString: 0
+		lineageTag: 2165ef6f-7170-4d29-9748-a2fdd9f8d056
+		summarizeBy: sum
+		sourceColumn: doubles
+
+		annotation SummarizationSetBy = Automatic
+
+	column Triples
+		dataType: int64
+		formatString: 0
+		lineageTag: 77e31be4-271c-42e5-8b97-ccfeefff3534
+		summarizeBy: sum
+		sourceColumn: triples
+
+		annotation SummarizationSetBy = Automatic
+
+	column HR
+		dataType: int64
+		formatString: 0
+		lineageTag: 27c02c3f-75d5-4bdb-986e-db976dcca3b7
+		summarizeBy: sum
+		sourceColumn: homeRuns
+
+		annotation SummarizationSetBy = Automatic
+
+	column RBI
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a6033e5-8d0d-43bb-977f-0a0cce2ee8c6
+		summarizeBy: sum
+		sourceColumn: rbi
+
+		annotation SummarizationSetBy = Automatic
+
+	column BB
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d64db8c-2c26-4d4a-9aa9-b39dbb47e4a7
+		summarizeBy: sum
+		sourceColumn: baseOnBalls
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO
+		dataType: int64
+		formatString: 0
+		lineageTag: 92902ba7-da7f-42c6-89d9-6258168f446c
+		summarizeBy: sum
+		sourceColumn: strikeOuts
+
+		annotation SummarizationSetBy = Automatic
+
+	column SB
+		dataType: int64
+		formatString: 0
+		lineageTag: d545405f-a538-4947-b59c-1864374da217
+		summarizeBy: sum
+		sourceColumn: stolenBases
+
+		annotation SummarizationSetBy = Automatic
+
+	column CS
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e006d63-58ad-4773-810c-817138cc811c
+		summarizeBy: sum
+		sourceColumn: caughtStealing
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalBases
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fe8faaa-6410-4ea7-beed-4392857af2d3
+		summarizeBy: sum
+		sourceColumn: totalBases
+
+		annotation SummarizationSetBy = Automatic
+
+	column AVG
+		dataType: double
+		lineageTag: 667e09aa-8510-4f1f-a199-6b7735a4efe9
+		summarizeBy: none
+		sourceColumn: avg
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OBP
+		dataType: double
+		lineageTag: 08723caa-b747-4e90-a96b-a4842b09ce89
+		summarizeBy: none
+		sourceColumn: obp
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SLG
+		dataType: double
+		lineageTag: b9b6a27b-3948-4d92-9933-51047b458e53
+		summarizeBy: none
+		sourceColumn: slg
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OPS
+		dataType: double
+		lineageTag: d74df641-d19b-4552-9444-f01a68a89d76
+		summarizeBy: none
+		sourceColumn: ops
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BABIP
+		dataType: double
+		lineageTag: fb10f6d2-370f-4d13-8a9c-31eec114b770
+		summarizeBy: none
+		sourceColumn: babip
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// Isolated power = SLG - AVG.
+	column ISO = Hitting[SLG] - Hitting[AVG]
+		dataType: double
+		formatString: 0.000
+		lineageTag: 4e08328b-046e-4794-bbd4-b14b9d50ff13
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Hitting = m
+		mode: import
+		source =
+				let
+				  Fetch = (yr as number) as table =>
+				    let
+				      Source = Json.Document(Web.Contents("https://statsapi.mlb.com/api/v1/stats", [Query=[stats="season", group="hitting", season=Text.From(yr), sportId="1", playerPool="qualified", limit="2000"]])),
+				      splits = Source[stats]{0}[splits],
+				      t = Table.FromList(splits, Splitter.SplitByNothing(), {"Split"}),
+				      expand = Table.ExpandRecordColumn(t, "Split", {"stat","player","team","position","rank"}, {"stat","player","team","position","rank"}),
+				      PlayerId = Table.AddColumn(expand, "PlayerId", each [player][id], Int64.Type),
+				      PlayerName = Table.AddColumn(PlayerId, "PlayerName", each [player][fullName], type text),
+				      TeamId = Table.AddColumn(PlayerName, "TeamId", each try [team][id] otherwise null, Int64.Type),
+				      TeamName = Table.AddColumn(TeamId, "TeamName", each try [team][name] otherwise null, type text),
+				      Pos = Table.AddColumn(TeamName, "Pos", each try [position][abbreviation] otherwise null, type text),
+				      expandStat = Table.ExpandRecordColumn(Pos, "stat", {"age","gamesPlayed","plateAppearances","atBats","runs","hits","doubles","triples","homeRuns","rbi","baseOnBalls","strikeOuts","stolenBases","caughtStealing","totalBases","avg","obp","slg","ops","babip"}, {"age","gamesPlayed","plateAppearances","atBats","runs","hits","doubles","triples","homeRuns","rbi","baseOnBalls","strikeOuts","stolenBases","caughtStealing","totalBases","avg","obp","slg","ops","babip"}),
+				      drop = Table.RemoveColumns(expandStat, {"player","team","position","rank"}),
+				      typed = Table.TransformColumnTypes(drop, {{"PlayerId",Int64.Type},{"PlayerName",type text},{"TeamId",Int64.Type},{"TeamName",type text},{"Pos",type text},{"age",Int64.Type},{"gamesPlayed",Int64.Type},{"plateAppearances",Int64.Type},{"atBats",Int64.Type},{"runs",Int64.Type},{"hits",Int64.Type},{"doubles",Int64.Type},{"triples",Int64.Type},{"homeRuns",Int64.Type},{"rbi",Int64.Type},{"baseOnBalls",Int64.Type},{"strikeOuts",Int64.Type},{"stolenBases",Int64.Type},{"caughtStealing",Int64.Type},{"totalBases",Int64.Type},{"avg",type number},{"obp",type number},{"slg",type number},{"ops",type number},{"babip",type number}}, "en-US"),
+				      withSeason = Table.AddColumn(typed, "Season", each yr, Int64.Type)
+				    in
+				      withSeason,
+				  SeasonList = List.Numbers(Number.From(SeasonStart), Number.From(SeasonEnd) - Number.From(SeasonStart) + 1),
+				  All = List.Transform(SeasonList, each Fetch(_)),
+				  Combined = Table.Combine(All)
+				in
+				  Combined
+
+	annotation PBI_ResultType = Table

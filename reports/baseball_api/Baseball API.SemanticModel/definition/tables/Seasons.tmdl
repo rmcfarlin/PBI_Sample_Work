@@ -1,0 +1,23 @@
+table Seasons
+	lineageTag: a7a1f52e-eac3-4169-935b-f883931f0768
+
+	column Season
+		dataType: int64
+		formatString: 0
+		lineageTag: f5715a1b-2d7c-40eb-a499-1cbedb915706
+		summarizeBy: none
+		sourceColumn: Season
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Seasons = m
+		mode: import
+		source =
+				let
+				  s = List.Numbers(Number.From(SeasonStart), Number.From(SeasonEnd) - Number.From(SeasonStart) + 1),
+				  t = Table.FromList(s, Splitter.SplitByNothing(), {"Season"}),
+				  typed = Table.TransformColumnTypes(t, {{"Season", Int64.Type}})
+				in
+				  typed
+
+	annotation PBI_ResultType = Table

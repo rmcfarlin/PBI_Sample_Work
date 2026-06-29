@@ -10,5 +10,25 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref cultureInfo en-US
+annotation PBI_QueryOrder = ["SeasonStart","SeasonEnd","Seasons","Teams","Standings","Hitting","Pitching"]
 
+expression SeasonStart = 2020 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 5f197f3d-4b77-4ab6-a912-ebdbebe2528b
+
+	annotation PBI_ResultType = Number
+
+expression SeasonEnd = 2025 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+	lineageTag: 14427f2c-2e89-43a4-b1f5-df4b4bd4f70f
+
+	annotation PBI_ResultType = Number
+
+ref table Seasons
+ref table Teams
+ref table Standings
+ref table Hitting
+ref table Pitching
+ref table _Measures
+ref table 'Rank By Hitting'
+ref table 'Rank By Pitching'
+
+ref cultureInfo en-US

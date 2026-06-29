@@ -1,0 +1,180 @@
+table Standings
+	lineageTag: 6a6636bf-be92-4b57-8bde-d9e418ec0221
+
+	column Season
+		dataType: int64
+		formatString: 0
+		lineageTag: 23194bad-2065-4322-8373-2c3d0095330d
+		summarizeBy: none
+		sourceColumn: Season
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamId
+		dataType: int64
+		formatString: 0
+		lineageTag: cffbce12-26c6-48ec-9936-28d076e98e50
+		summarizeBy: none
+		sourceColumn: TeamId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamName
+		dataType: string
+		lineageTag: 36494367-7ab6-4961-859a-04db4fe25708
+		summarizeBy: none
+		sourceColumn: TeamName
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c965adb-80f9-425e-934b-2a7fd8f56f4e
+		summarizeBy: none
+		sourceColumn: DivisionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeagueId
+		dataType: int64
+		formatString: 0
+		lineageTag: ec52cc25-4deb-40be-80fa-01c91349ab31
+		summarizeBy: none
+		sourceColumn: LeagueId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wins
+		dataType: int64
+		formatString: 0
+		lineageTag: 4dbf819b-4598-4036-9ecf-1544b00c64c3
+		summarizeBy: sum
+		sourceColumn: Wins
+
+		annotation SummarizationSetBy = Automatic
+
+	column Losses
+		dataType: int64
+		formatString: 0
+		lineageTag: 44383fc1-3fc8-4787-98bd-e6d395b2fd7c
+		summarizeBy: sum
+		sourceColumn: Losses
+
+		annotation SummarizationSetBy = Automatic
+
+	column WinPct
+		dataType: double
+		lineageTag: c444fe85-ba7a-4d55-8904-7eedc787f090
+		summarizeBy: none
+		sourceColumn: WinPct
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GamesBack
+		dataType: string
+		lineageTag: e4710057-809a-4d49-a8dc-f4750f3020e4
+		summarizeBy: none
+		sourceColumn: GamesBack
+
+		annotation SummarizationSetBy = Automatic
+
+	column DivisionRank
+		dataType: int64
+		formatString: 0
+		lineageTag: de9f8df9-446a-4331-a8d7-05cfffdf20f4
+		summarizeBy: none
+		sourceColumn: DivisionRank
+
+		annotation SummarizationSetBy = Automatic
+
+	column LeagueRank
+		dataType: int64
+		formatString: 0
+		lineageTag: f3e77e59-27db-4bf8-a62b-d6fbaff9913b
+		summarizeBy: none
+		sourceColumn: LeagueRank
+
+		annotation SummarizationSetBy = Automatic
+
+	column Streak
+		dataType: string
+		lineageTag: 54fe47b3-e677-481b-9df9-72f0a5c4c309
+		summarizeBy: none
+		sourceColumn: Streak
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clinch
+		dataType: string
+		lineageTag: 09e2b541-c9c6-4569-be08-c4157a1ac060
+		summarizeBy: none
+		sourceColumn: Clinch
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunsScored
+		dataType: int64
+		formatString: 0
+		lineageTag: 17ada8c4-e6af-4881-b622-075b0758b553
+		summarizeBy: sum
+		sourceColumn: RunsScored
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunsAllowed
+		dataType: int64
+		formatString: 0
+		lineageTag: 109be16d-b30e-4c9c-b16b-c746412eab6a
+		summarizeBy: sum
+		sourceColumn: RunsAllowed
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunDiff
+		dataType: int64
+		formatString: 0
+		lineageTag: 24d52a3c-e5b3-470a-9940-86c8b5509b7f
+		summarizeBy: sum
+		sourceColumn: RunDifferential
+
+		annotation SummarizationSetBy = Automatic
+
+	column GamesPlayed
+		dataType: int64
+		formatString: 0
+		lineageTag: 63bd0ba1-b892-4cc9-a657-2ddf46496efd
+		summarizeBy: sum
+		sourceColumn: GamesPlayed
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Standings = m
+		mode: import
+		source =
+				let
+				  Fetch = (yr as number) as table =>
+				    let
+				      Source = Json.Document(Web.Contents("https://statsapi.mlb.com/api/v1/standings", [Query=[leagueId="103,104", season=Text.From(yr), standingsTypes="regularSeason"]])),
+				      records = Source[records],
+				      recTable = Table.FromList(records, Splitter.SplitByNothing(), {"Rec"}),
+				      expandRec = Table.ExpandRecordColumn(recTable, "Rec", {"division","league","teamRecords"}, {"division","league","teamRecords"}),
+				      DivisionId = Table.AddColumn(expandRec, "DivisionId", each [division][id], Int64.Type),
+				      LeagueId = Table.AddColumn(DivisionId, "LeagueId", each [league][id], Int64.Type),
+				      expandTR = Table.ExpandListColumn(LeagueId, "teamRecords"),
+				      expandTR2 = Table.ExpandRecordColumn(expandTR, "teamRecords", {"team","wins","losses","winningPercentage","gamesBack","divisionRank","leagueRank","streak","clinchIndicator","runsScored","runsAllowed","runDifferential","gamesPlayed"}, {"team","Wins","Losses","WinPct","GamesBack","DivisionRank","LeagueRank","streak","Clinch","RunsScored","RunsAllowed","RunDifferential","GamesPlayed"}),
+				      TeamId = Table.AddColumn(expandTR2, "TeamId", each [team][id], Int64.Type),
+				      TeamName = Table.AddColumn(TeamId, "TeamName", each [team][name], type text),
+				      Streak = Table.AddColumn(TeamName, "Streak", each try [streak][streakCode] otherwise null, type text),
+				      drop = Table.RemoveColumns(Streak, {"division","league","team","streak"}),
+				      typed = Table.TransformColumnTypes(drop, {{"Wins",Int64.Type},{"Losses",Int64.Type},{"WinPct",type number},{"GamesBack",type text},{"DivisionRank",Int64.Type},{"LeagueRank",Int64.Type},{"Clinch",type text},{"RunsScored",Int64.Type},{"RunsAllowed",Int64.Type},{"RunDifferential",Int64.Type},{"GamesPlayed",Int64.Type},{"DivisionId",Int64.Type},{"LeagueId",Int64.Type}}, "en-US"),
+				      withSeason = Table.AddColumn(typed, "Season", each yr, Int64.Type)
+				    in
+				      withSeason,
+				  SeasonList = List.Numbers(Number.From(SeasonStart), Number.From(SeasonEnd) - Number.From(SeasonStart) + 1),
+				  All = List.Transform(SeasonList, each Fetch(_)),
+				  Combined = Table.Combine(All)
+				in
+				  Combined
+
+	annotation PBI_ResultType = Table

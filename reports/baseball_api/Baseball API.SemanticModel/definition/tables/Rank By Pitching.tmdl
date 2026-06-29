@@ -1,0 +1,51 @@
+table 'Rank By Pitching'
+	lineageTag: 57466477-aac5-42bd-9122-7cbcdab3d229
+
+	column 'Rank By Pitching'
+		lineageTag: ce046be5-8b41-4c7f-a091-97086d4a6d8e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Rank By Pitching Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Rank By Pitching Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank By Pitching Fields'
+		isHidden
+		lineageTag: 780946fa-a2f7-4aff-a709-2c1d4149af6c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Rank By Pitching Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Rank By Pitching Order'
+		isHidden
+		formatString: 0
+		lineageTag: 38191c23-573e-44a1-99de-b821d2ccf79c
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Rank By Pitching' = calculated
+		mode: import
+		source =
+				{
+				    ("Wins", NAMEOF([Pitcher Wins]), 0),
+				    ("Strikeouts", NAMEOF([Strikeouts]), 1),
+				    ("Saves", NAMEOF([Saves]), 2),
+				    ("K per 9", NAMEOF([K per 9]), 3),
+				    ("K per BB", NAMEOF([K per BB]), 4),
+				    ("Batters Faced", NAMEOF([Batters Faced]), 5)
+				}
+
+	annotation PBI_Id = b4cb9694132640d78f1efc5109f8db54
