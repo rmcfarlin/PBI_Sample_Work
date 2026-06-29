@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "tb-header",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "width": 1280,
     "height": 92,
+    "width": 1280,
     "tabOrder": 0
   },
   "visual": {
@@ -33,7 +33,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "What separates Cooperstown from the field \u2014 and who sits on the wrong side of the line",
+                    "value": "What separates Cooperstown from the field — and who sits on the wrong side of the line",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",
@@ -43,14 +43,7 @@
                 ],
                 "horizontalTextAlignment": "left"
               }
-            ],
-            "verticalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'middle'"
-                }
-              }
-            }
+            ]
           }
         }
       ]

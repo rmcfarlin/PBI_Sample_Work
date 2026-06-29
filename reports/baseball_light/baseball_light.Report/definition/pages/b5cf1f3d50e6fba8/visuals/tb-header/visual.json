@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "tb-header",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "width": 1280,
     "height": 92,
+    "width": 1280,
     "tabOrder": 0
   },
   "visual": {
@@ -43,14 +43,7 @@
                 ],
                 "horizontalTextAlignment": "left"
               }
-            ],
-            "verticalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'middle'"
-                }
-              }
-            }
+            ]
           }
         }
       ]

@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "slicer-ae56eee2",
+  "position": {
+    "x": 14,
+    "y": 150,
+    "z": 20,
+    "height": 500,
+    "width": 222,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "slicer",
     "query": {
@@ -7,7 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "baseball_hits.PLAYER",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,7 +26,9 @@
                   "Property": "PLAYER"
                 }
               },
-              "nativeQueryRef": "PLAYER"
+              "queryRef": "baseball_hits.PLAYER",
+              "nativeQueryRef": "PLAYER",
+              "active": true
             }
           ]
         }
@@ -80,9 +90,55 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "b",
+                    "Entity": "baseball_hits",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "b"
+                                }
+                              },
+                              "Property": "PLAYER"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Babe Ruth'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "background": [
         {
@@ -97,15 +153,25 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   },
-  "position": {
-    "x": 14,
-    "y": 150,
-    "width": 222,
-    "height": 500,
-    "z": 20,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a3e1efa7679f36302c6f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "baseball_hits"
+              }
+            },
+            "Property": "PLAYER"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }

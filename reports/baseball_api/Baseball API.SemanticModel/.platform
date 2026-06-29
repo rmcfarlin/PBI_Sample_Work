@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Baseball API"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "768cf3bb-5c97-4b67-b199-3b485cc7fcfb"
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "kpi-3000",
   "position": {
     "x": 771,
     "y": 108,
     "z": 0,
-    "width": 233,
     "height": 110,
+    "width": 233,
     "tabOrder": 0
   },
   "visual": {
@@ -38,13 +38,6 @@
                     }
                   },
                   "Property": "KPI Tile 3000 SVG"
-                }
-              }
-            },
-            "imageScalingType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Fit'"
                 }
               }
             }

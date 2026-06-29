@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "tb-header",
   "position": {
     "x": 0,
     "y": 0,
     "z": 0,
-    "width": 1280,
     "height": 92,
+    "width": 1280,
     "tabOrder": 0
   },
   "visual": {
@@ -33,7 +33,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "465 of the game's best hitters \u00b7 career totals \u00b7 Hall of Fame flagged",
+                    "value": "465 of the game's best hitters · career totals · Hall of Fame flagged",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "12pt",
@@ -43,14 +43,7 @@
                 ],
                 "horizontalTextAlignment": "left"
               }
-            ],
-            "verticalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'middle'"
-                }
-              }
-            }
+            ]
           }
         }
       ]

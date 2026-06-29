@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "hof-rate-by-career-ops-columnChart-163c93",
+  "position": {
+    "x": 780,
+    "y": 320,
+    "z": 0,
+    "height": 208,
+    "width": 476,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "columnChart",
     "query": {
@@ -7,7 +16,6 @@
         "Category": {
           "projections": [
             {
-              "queryRef": "baseball_hits.OPS Band",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,14 +26,15 @@
                   "Property": "OPS Band"
                 }
               },
-              "nativeQueryRef": "OPS Band"
+              "queryRef": "baseball_hits.OPS Band",
+              "nativeQueryRef": "OPS Band",
+              "active": true
             }
           ]
         },
         "Y": {
           "projections": [
             {
-              "queryRef": "_Measures.HOF Rate",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -36,6 +45,7 @@
                   "Property": "HOF Rate"
                 }
               },
+              "queryRef": "_Measures.HOF Rate",
               "nativeQueryRef": "HOF Rate"
             }
           ]
@@ -60,8 +70,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -96,15 +104,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 780,
-    "y": 320,
-    "z": 0,
-    "width": 476,
-    "height": 208,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

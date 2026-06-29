@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "img-percentile",
   "position": {
     "x": 886,
     "y": 286,
     "z": 5,
-    "width": 370,
     "height": 420,
+    "width": 370,
     "tabOrder": 0
   },
   "visual": {
@@ -38,13 +38,6 @@
                     }
                   },
                   "Property": "Percentile Panel SVG"
-                }
-              }
-            },
-            "imageScalingType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Fit'"
                 }
               }
             }

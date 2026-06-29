@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "archetype-mix-donutChart-bedc62",
+  "position": {
+    "x": 780,
+    "y": 108,
+    "z": 0,
+    "height": 230,
+    "width": 476,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "donutChart",
     "query": {
@@ -7,7 +16,6 @@
         "Category": {
           "projections": [
             {
-              "queryRef": "baseball_hits.Archetype",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,14 +26,15 @@
                   "Property": "Archetype"
                 }
               },
-              "nativeQueryRef": "Archetype"
+              "queryRef": "baseball_hits.Archetype",
+              "nativeQueryRef": "Archetype",
+              "active": true
             }
           ]
         },
         "Y": {
           "projections": [
             {
-              "queryRef": "_Measures.Total Players",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -36,6 +45,7 @@
                   "Property": "Total Players"
                 }
               },
+              "queryRef": "_Measures.Total Players",
               "nativeQueryRef": "Total Players"
             }
           ]
@@ -60,8 +70,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -96,15 +104,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 780,
-    "y": 108,
-    "z": 0,
-    "width": 476,
-    "height": 230,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

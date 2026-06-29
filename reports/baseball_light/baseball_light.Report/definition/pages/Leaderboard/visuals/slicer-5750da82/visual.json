@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "slicer-5750da82",
+  "position": {
+    "x": 24,
+    "y": 240,
+    "z": 0,
+    "height": 44,
+    "width": 1232,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "slicer",
     "query": {
@@ -7,7 +16,6 @@
         "Values": {
           "projections": [
             {
-              "queryRef": "Rank By.Rank By",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,7 +26,9 @@
                   "Property": "Rank By"
                 }
               },
-              "nativeQueryRef": "Rank By"
+              "queryRef": "Rank By.Rank By",
+              "nativeQueryRef": "Rank By",
+              "active": true
             }
           ]
         }
@@ -40,14 +50,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "position": {
-    "x": 24,
-    "y": 240,
-    "z": 0,
-    "width": 1232,
-    "height": 44,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+  }
 }

@@ -1,49 +1,21 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "hits-vs-home-runs-each-dot-is-scatterChart-a6d96a",
+  "position": {
+    "x": 24,
+    "y": 108,
+    "z": 0,
+    "height": 420,
+    "width": 740,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "scatterChart",
     "query": {
       "queryState": {
-        "X": {
-          "projections": [
-            {
-              "queryRef": "_Measures.Total Hits",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Hits"
-                }
-              },
-              "nativeQueryRef": "Total Hits"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "queryRef": "_Measures.Total Home Runs",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Home Runs"
-                }
-              },
-              "nativeQueryRef": "Total Home Runs"
-            }
-          ]
-        },
         "Category": {
           "projections": [
             {
-              "queryRef": "baseball_hits.PLAYER",
               "field": {
                 "Column": {
                   "Expression": {
@@ -54,32 +26,15 @@
                   "Property": "PLAYER"
                 }
               },
-              "nativeQueryRef": "PLAYER"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "queryRef": "_Measures.Total RBI",
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total RBI"
-                }
-              },
-              "nativeQueryRef": "Total RBI"
+              "queryRef": "baseball_hits.PLAYER",
+              "nativeQueryRef": "PLAYER",
+              "active": true
             }
           ]
         },
         "Series": {
           "projections": [
             {
-              "queryRef": "baseball_hits.HOF Status",
               "field": {
                 "Column": {
                   "Expression": {
@@ -90,7 +45,63 @@
                   "Property": "HOF Status"
                 }
               },
+              "queryRef": "baseball_hits.HOF Status",
               "nativeQueryRef": "HOF Status"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total RBI"
+                }
+              },
+              "queryRef": "_Measures.Total RBI",
+              "nativeQueryRef": "Total RBI"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Hits"
+                }
+              },
+              "queryRef": "_Measures.Total Hits",
+              "nativeQueryRef": "Total Hits",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Home Runs"
+                }
+              },
+              "queryRef": "_Measures.Total Home Runs",
+              "nativeQueryRef": "Total Home Runs"
             }
           ]
         }
@@ -114,36 +125,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "HOF Headline"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -183,15 +164,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 24,
-    "y": 108,
-    "z": 0,
-    "width": 740,
-    "height": 420,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

@@ -261,7 +261,7 @@ table baseball_hits
 		annotation SummarizationSetBy = Automatic
 
 	/// Power (ISO) x Contact (BA) archetype, split at dataset medians.
-	column 'Archetype' =
+	column Archetype =
 			VAR Power = baseball_hits[Player ISO] >= 0.148
 			VAR Contact = baseball_hits[BA] >= 0.287
 			RETURN

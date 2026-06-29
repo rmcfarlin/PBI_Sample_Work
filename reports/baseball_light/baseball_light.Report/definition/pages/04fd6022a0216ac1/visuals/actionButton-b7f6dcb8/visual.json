@@ -1,12 +1,19 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "actionButton-b7f6dcb8",
+  "position": {
+    "x": 16,
+    "y": 682,
+    "z": 21,
+    "height": 26,
+    "width": 218,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "actionButton",
     "query": {
       "queryState": {}
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "visualLink": [
         {
@@ -28,15 +35,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 16,
-    "y": 682,
-    "width": 218,
-    "height": 26,
-    "z": 21,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

@@ -8,13 +8,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["baseball_hits"]
-
 annotation PBI_ProTooling = ["DevMode"]
-
-ref table baseball_hits
-ref table _Measures
-ref table 'Rank By'
 
 ref cultureInfo en-US
 

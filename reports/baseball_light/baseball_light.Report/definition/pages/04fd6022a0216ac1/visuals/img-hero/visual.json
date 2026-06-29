@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "img-hero",
   "position": {
     "x": 270,
     "y": 24,
     "z": 5,
-    "width": 986,
     "height": 86,
+    "width": 986,
     "tabOrder": 0
   },
   "visual": {
@@ -38,13 +38,6 @@
                     }
                   },
                   "Property": "Profile Hero SVG"
-                }
-              }
-            },
-            "imageScalingType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Fit'"
                 }
               }
             }

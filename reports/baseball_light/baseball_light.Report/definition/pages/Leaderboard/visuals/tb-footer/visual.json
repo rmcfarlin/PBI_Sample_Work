@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "tb-footer",
   "position": {
     "x": 24,
     "y": 700,
     "z": 0,
-    "width": 1232,
     "height": 16,
+    "width": 1232,
     "tabOrder": 0
   },
   "visual": {
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Sanitized sample dataset \u00b7 rate stats recomputed from raw totals \u00b7 OBP approximates (H+BB)/(AB+BB), no HBP/SF in source",
+                    "value": "Sanitized sample dataset · rate stats recomputed from raw totals · OBP approximates (H+BB)/(AB+BB), no HBP/SF in source",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "9pt",
@@ -29,14 +29,7 @@
                 ],
                 "horizontalTextAlignment": "left"
               }
-            ],
-            "verticalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'middle'"
-                }
-              }
-            }
+            ]
           }
         }
       ]

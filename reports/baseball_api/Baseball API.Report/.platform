@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Baseball API"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a62d82ff-e8d4-48f8-9b67-faf6940d519b"
+  }
+}

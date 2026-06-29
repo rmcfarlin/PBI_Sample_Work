@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "tb-archedef",
   "position": {
     "x": 24,
     "y": 594,
     "z": 0,
-    "width": 740,
     "height": 102,
+    "width": 740,
     "tabOrder": 0
   },
   "visual": {
@@ -33,7 +33,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Split at the dataset medians \u2014 power = ISO .148, contact = AVG .287.  ",
+                    "value": "Split at the dataset medians — power = ISO .148, contact = AVG .287.  ",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "10pt",
@@ -50,7 +50,7 @@
                     }
                   },
                   {
-                    "value": " (power, lower avg) \u00b7 ",
+                    "value": " (power, lower avg) · ",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "10pt",
@@ -67,7 +67,7 @@
                     }
                   },
                   {
-                    "value": " (power + avg) \u00b7 ",
+                    "value": " (power + avg) · ",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "10pt",
@@ -84,7 +84,7 @@
                     }
                   },
                   {
-                    "value": " (avg, less power) \u00b7 ",
+                    "value": " (avg, less power) · ",
                     "textStyle": {
                       "fontFamily": "'Libre Franklin', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "10pt",
@@ -125,14 +125,7 @@
                 ],
                 "horizontalTextAlignment": "left"
               }
-            ],
-            "verticalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'top'"
-                }
-              }
-            }
+            ]
           }
         }
       ]

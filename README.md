@@ -27,6 +27,7 @@ Everything here is sanitized — structure and technique are real, the underlyin
 | Project | Report | Data | Highlights |
 |---|---|---|---|
 | **Career Hitting Leaders** | [baseball_light](./reports/baseball_light/) | [baseball_hits.csv](./data/baseball_hits.csv) | 465 hitters; 71-measure sabermetrics library, dynamic field-parameter leaderboard, Hall-of-Fame analysis, drill-through player profiles, SVG KPI tiles & icons — styled with a custom [Ballpark](./design_systems/ballpark/) navy/crimson design system. [Read the writeup →](./reports/baseball_light/README.md) |
+| **Baseball API** _(in progress)_ | [baseball_api](./reports/baseball_api/) | live [MLB Stats API](https://statsapi.mlb.com/api/v1/) | Built directly on a live REST API via Power Query (`Web.Contents` → JSON) into a refreshable model — standings + hitting/pitching leaderboards on the Ballpark design system. [Read the plan →](./reports/baseball_api/README.md) |
 
 ---
 

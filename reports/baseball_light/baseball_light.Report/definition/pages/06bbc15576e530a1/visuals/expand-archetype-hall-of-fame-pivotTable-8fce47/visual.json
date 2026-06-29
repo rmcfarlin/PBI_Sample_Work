@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "expand-archetype-hall-of-fame-pivotTable-8fce47",
+  "position": {
+    "x": 24,
+    "y": 108,
+    "z": 0,
+    "height": 584,
+    "width": 1232,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "pivotTable",
     "query": {
@@ -7,7 +16,6 @@
         "Rows": {
           "projections": [
             {
-              "queryRef": "baseball_hits.Archetype",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,10 +26,11 @@
                   "Property": "Archetype"
                 }
               },
-              "nativeQueryRef": "Archetype"
+              "queryRef": "baseball_hits.Archetype",
+              "nativeQueryRef": "Archetype",
+              "active": true
             },
             {
-              "queryRef": "baseball_hits.HOF Status",
               "field": {
                 "Column": {
                   "Expression": {
@@ -32,10 +41,11 @@
                   "Property": "HOF Status"
                 }
               },
-              "nativeQueryRef": "HOF Status"
+              "queryRef": "baseball_hits.HOF Status",
+              "nativeQueryRef": "HOF Status",
+              "active": false
             },
             {
-              "queryRef": "baseball_hits.PLAYER",
               "field": {
                 "Column": {
                   "Expression": {
@@ -46,14 +56,15 @@
                   "Property": "PLAYER"
                 }
               },
-              "nativeQueryRef": "PLAYER"
+              "queryRef": "baseball_hits.PLAYER",
+              "nativeQueryRef": "PLAYER",
+              "active": false
             }
           ]
         },
         "Values": {
           "projections": [
             {
-              "queryRef": "_Measures.Total Players",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -64,10 +75,10 @@
                   "Property": "Total Players"
                 }
               },
+              "queryRef": "_Measures.Total Players",
               "nativeQueryRef": "Total Players"
             },
             {
-              "queryRef": "_Measures.Total Hits",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -78,10 +89,10 @@
                   "Property": "Total Hits"
                 }
               },
+              "queryRef": "_Measures.Total Hits",
               "nativeQueryRef": "Total Hits"
             },
             {
-              "queryRef": "_Measures.Total Home Runs",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -92,10 +103,10 @@
                   "Property": "Total Home Runs"
                 }
               },
+              "queryRef": "_Measures.Total Home Runs",
               "nativeQueryRef": "Total Home Runs"
             },
             {
-              "queryRef": "_Measures.OPS (approx)",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -106,10 +117,10 @@
                   "Property": "OPS (approx)"
                 }
               },
+              "queryRef": "_Measures.OPS (approx)",
               "nativeQueryRef": "OPS (approx)"
             },
             {
-              "queryRef": "_Measures.HOF Rate",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -120,6 +131,7 @@
                   "Property": "HOF Rate"
                 }
               },
+              "queryRef": "_Measures.HOF Rate",
               "nativeQueryRef": "HOF Rate"
             }
           ]
@@ -144,8 +156,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {},
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -180,15 +190,7 @@
           }
         }
       ]
-    }
-  },
-  "position": {
-    "x": 24,
-    "y": 108,
-    "z": 0,
-    "width": 1232,
-    "height": 584,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json"
+    },
+    "drillFilterOtherVisuals": true
+  }
 }

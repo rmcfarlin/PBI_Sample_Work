@@ -1,5 +1,14 @@
 {
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "top-hitters-barChart-1f8fac",
+  "position": {
+    "x": 24,
+    "y": 296,
+    "z": 0,
+    "height": 400,
+    "width": 820,
+    "tabOrder": 0
+  },
   "visual": {
     "visualType": "barChart",
     "query": {
@@ -7,7 +16,6 @@
         "Category": {
           "projections": [
             {
-              "queryRef": "baseball_hits.PLAYER",
               "field": {
                 "Column": {
                   "Expression": {
@@ -18,14 +26,15 @@
                   "Property": "PLAYER"
                 }
               },
-              "nativeQueryRef": "PLAYER"
+              "queryRef": "baseball_hits.PLAYER",
+              "nativeQueryRef": "PLAYER",
+              "active": true
             }
           ]
         },
         "Y": {
           "projections": [
             {
-              "queryRef": "_Measures.Selected Metric Value",
               "field": {
                 "Measure": {
                   "Expression": {
@@ -36,6 +45,7 @@
                   "Property": "Selected Metric Value"
                 }
               },
+              "queryRef": "_Measures.Selected Metric Value",
               "nativeQueryRef": "Selected Metric Value"
             }
           ]
@@ -60,36 +70,6 @@
         "isDefaultSort": true
       }
     },
-    "objects": {
-      "title": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Leaderboard Title"
-                }
-              }
-            }
-          },
-          "selector": {
-            "data": [
-              {
-                "dataViewWildcard": {
-                  "matchingOption": 1
-                }
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -129,17 +109,9 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   },
-  "position": {
-    "x": 24,
-    "y": 296,
-    "z": 0,
-    "width": 820,
-    "height": 400,
-    "tabOrder": 0
-  },
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "filterConfig": {
     "filters": [
       {
@@ -155,7 +127,6 @@
           }
         },
         "type": "TopN",
-        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -242,7 +213,8 @@
               }
             }
           ]
-        }
+        },
+        "howCreated": "User"
       }
     ]
   }
